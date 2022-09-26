@@ -7,6 +7,8 @@ import '../../styles/login.css';
 function Register() {
    const [ name, setName ] = useState('');
    const [ email, setEmail ] = useState('');
+   const [ phone, setPhone ] = useState('');
+   const [ roles, setRoles ] = useState('');
    const [ password, setPassword ] = useState('');
       
    // const handleName = (e) => {
@@ -22,11 +24,13 @@ function Register() {
    // }
    
    const handleRegister = () => {
-      console.log({ name, email, password })
-      axios.post('http://localhost:8080/api/auth/signup', 
+      console.log({ name, email, phone, roles, password })
+      axios.post('http://localhost:272/api/auth/signup', 
       {
          name: name,
          email: email,
+         phone: phone,
+         roles: roles,
          password: password
       })
          .then(result => {
@@ -64,6 +68,24 @@ function Register() {
                value={email}
                className="inputs"
                type="email" /> <br /> <br />
+            
+            Phone
+             <input
+               onChange={(e) => {
+                  setPhone(e.target.value)
+               }}
+               value={phone}
+               className="inputs"
+               type="number" /> <br /> <br />
+            
+            Roles
+             <input
+               onChange={(e) => {
+                  setRoles(e.target.value)
+               }}
+               value={roles}
+               className="inputs"
+               type="textr" /> <br /> <br />
                
             Password
                <input 

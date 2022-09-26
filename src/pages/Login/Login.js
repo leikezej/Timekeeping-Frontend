@@ -12,7 +12,7 @@ function Login() {
 
    const handleLogin = () => {
       console.log({ email, password})
-       axios.post('http://localhost:8080/api/auth/signin', 
+       axios.post('http://localhost:272/api/user/login', 
       {
          email: email,
          password: password
