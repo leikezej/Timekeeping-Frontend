@@ -5,21 +5,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/login.css';
 
 function Register() {
-   const [name, setName] = useState('');
-   const [email, setEmail] = useState('');
+   const [ name, setName ] = useState('');
+   const [ email, setEmail ] = useState('');
    const [ password, setPassword ] = useState('');
       
-   const handleName = (e) => {
-      setName(e.target.value)
-   }
+   // const handleName = (e) => {
+   //    setName(e.target.value)
+   // }
    
-   const handleEmail = (e) => {
-      setEmail(e.target.value)
-   }
+   // const handleEmail = (e) => {
+   //    setEmail(e.target.value)
+   // }
    
-   const handlePassword = (e) => {
-      setPassword(e.targer.value)
-   }
+   // const handlePassword = (e) => {
+   //    setPassword(e.targer.value)
+   // }
    
    const handleRegister = () => {
       console.log({ name, email, password })

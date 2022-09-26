@@ -8,22 +8,27 @@ import {
   Link
 } from "react-router-dom";
 
-import Login from './pages/Login/Login';
-import { BrowserRouter } from 'react-router-dom';
-import Register from './pages/Register/Register';
 import Home from './pages/Home/Home';
+import Login from './pages/Login/Login';
+import Register from './pages/Register/Register';
+import ForgotPassword from './pages/Forgot/ForgotPassword';
+import ChangePassword from './pages/Forgot/ChangePassword';
 
 // import { Login, Register, Home } from './pages/index'
-
 
 function App() {
   return (
     <div>
+      {/* <Router> */}
         <Routes>
-            <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/home" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/change-password" element={<ChangePassword />} />
         </Routes>
+      {/* </Router> */}
     </div>
   );
 }

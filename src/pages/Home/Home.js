@@ -12,9 +12,21 @@ function Home() {
    }, [])
    
    return(
-      <div>
-         Home
+      <div className="card">
+         <div> HOME </div>
+         
+         <div>
+            <span> {localStorage.getItem('EMAIL')} </span>
+            
+            <button
+               onClick={() => {
+                  localStorage.clear()
+                  navigate('/signin')
+               }}
+            > LOGOUT </button>
+         </div>
       </div>
+         
    );
 }
 
