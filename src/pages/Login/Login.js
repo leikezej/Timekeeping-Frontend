@@ -74,6 +74,7 @@ function Login() {
                value={email}
                className="inputs"
                type="email" /> <br /> <br />
+               
             Password
                <input 
                   required
