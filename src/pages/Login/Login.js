@@ -56,13 +56,10 @@ function Login() {
    }
 
    return (<>
-         <h1 className="center"> LOGIN </h1>
+         <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '50px', marginBottom: '50px'}}> LOGIN </h1>
                      
-         <div className="outcard">
-         
-               <Link to={'/register'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> Register Here</Link>
-         
-            Email 
+         <div className="outcard">         
+            Email:
             <br />
              <input
                required
@@ -74,7 +71,8 @@ function Login() {
                value={email}
                className="inputs"
                type="email" /> <br /> <br />
-            Password
+            
+            Password:
                <input 
                   required
                   placeholder="**********"
@@ -92,6 +90,7 @@ function Login() {
                   
                <button onClick={handleLogin} className="btns"> LOGIN </button>
                   <br />
+               <Link to={'/register'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> Register Here</Link>
          </div>
       </>
    )

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 function Timein() {
    const navigate = useNavigate('');
@@ -26,19 +27,30 @@ function Timein() {
       })
    }
 
-   return(<>
-            <h1 className="center"> Timein </h1>
+   return(
+   <>
+      <>
+               <a href="/home" alt="" class="link linkedin">
+                  <AiOutlineArrowLeft size="40px" 
+                      onMouseOver={({target})=>target.style.color="#000"}
+                  />
+              </a>
+      </>
+            <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '10px', marginBottom: '10px'}}> Timein </h1>
          
-            <div className="outcard">
-               Name
+            <div className="outcard" style={{ marginTop: '20px', marginBottom: '10px'}}>
+               Name:
+                <br />
                   <input
                      onChange={(e) => {
                         setName(e.target.value)
                      }}
+                     focusBorderColor={'#c2c2c2'}
                      value={name}
                      className="inputs"
                      type="text  " /> <br /> <br />
-               Date
+               Date:
+                <br />
                   <input
                      onChange={(e) => {
                         setDate(e.target.value)
@@ -47,7 +59,8 @@ function Timein() {
                      className="inputs"
                      type="date" /> <br /> <br />
                      
-               Time
+               Time:
+                <br />
                   <input
                      onChange={(e) => {
                         setTime(e.target.value)
@@ -59,11 +72,11 @@ function Timein() {
                <button icon="fa-solid  fa-arrow-right-to-bracket" onClick={AddTimein}> IN </button>
             </div>
             
-            <Link to={'/timeout'} 
+            {/* <Link to={'/timeout'} 
                style={{ 
                   marginTop: '5px', 
                   textAlign: 'center', 
-                  display: 'block' }}> TIMEOUT </Link>
+                  display: 'block' }}> TIMEOUT </Link> */}
          </>
    );
 }

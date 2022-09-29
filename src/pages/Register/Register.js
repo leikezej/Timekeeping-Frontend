@@ -62,8 +62,8 @@ function Register() {
    }
    
    return (<>
-         <h1 className="center"> Register </h1>
-               <Link to={'/login'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> Login Here</Link>
+         <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '50px'}}> REGISTER </h1>
+               {/* <Link to={'/login'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> Login Here</Link> */}
          <br />
                      
          <div className="outcard">
@@ -77,7 +77,7 @@ function Register() {
                className="inputs"
                type="name" /> <br /> <br />
             
-            Email <br />
+            Email: <br />
              <input
                onChange={(e) => {
                   setEmail(e.target.value)
@@ -87,7 +87,7 @@ function Register() {
                className="inputs"
                type="email" /> <br /> <br />
             
-            Phone
+            Phone:
              <input
                onChange={(e) => {
                   setPhone(e.target.value)
@@ -117,7 +117,7 @@ function Register() {
                   // onChange={setValue}
                   /><br /> <br /> */}
             
-            Role <br />
+            Role: <br />
              <input
                onChange={(e) => {
                   setRoles(e.target.value)
@@ -127,7 +127,7 @@ function Register() {
                className="inputs"
                type="textr" /> <br /> <br />
                
-            Password
+            Password:
                <input 
                   onChange={(e) => {
                      setPassword(e.target.value)

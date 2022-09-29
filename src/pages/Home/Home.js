@@ -1,23 +1,11 @@
-import { setDate } from "date-fns";
-import { useState } from "react";
+// import { setDate } from "date-fns";
+// import { useState } from "react";
 
-// import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+// import { Link, useNavigate } from 'react-router-dom';
 
-import { Col, Row } from "reactstrap";
-// import Sidebar from '../../components/Sidebar';
-
-// import Timein from '../../components/Tables/Timein';
-// import Timeout from '../../components/Tables/Timeout';
 // import { Col, Row } from "reactstrap";
-
-// import Navbar from "../../Navbar";
-// import SideNavigation from "../../helpers/SideNavigation";
-// import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar/Navbar";
 
-// import Timein from "../../utils/Timein";
-// import Timeout from "../../utils/Timeout";
 import Timein from "../../components/Tables/Timein";
 import Timeout from "../../components/Tables/Timeout";
 import Table2 from "../../components/Table2";
@@ -47,6 +35,7 @@ const Home = () => {
 
    return(
       <>
+       <Navbar />
          <div styles={styles.contentDiv}>
             <div styles={styles.contentMargin}>
                
