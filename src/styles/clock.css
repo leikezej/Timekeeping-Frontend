@@ -1,0 +1,27 @@
+
+.clock{
+   /* width: 95vw;
+   height: 95vh;
+   overflow: hidden; */
+   text-align: center;
+}
+
+.clock h1{
+   border: 2px solid burlywood;
+   /* width: 250px; */
+   margin: 40vh auto 0px auto;
+   border-radius: 15px;
+   padding: 10px 0;
+   background-color: cornsilk;
+   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+h1{
+   font-family: 'Courier New', Courier, monospace;
+   color: san;
+}
+
+.time{
+   display: inline;
+   flex-direction: row;;
+}

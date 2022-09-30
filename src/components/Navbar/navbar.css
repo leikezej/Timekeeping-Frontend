@@ -1,0 +1,128 @@
+.navBar-container {
+}
+nav {
+	/* background-color: var(--dark); */
+	/* color: var(--light); */
+	/* border-bottom: 3px solid var(--primary); */
+	background-color: #000000;
+	color: #fff;
+	border-bottom: 1px solid #c6c6c6;
+}
+.nav-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	max-width: 1280px;
+	padding: 0 30px;
+	margin: 0 auto;
+}
+
+.nav-brand {
+   margin-top: 10px;
+	text-align: center;
+	font-size: 28px;
+	font-weight: 900;
+	text-transform: uppercase;
+}
+
+.menu {
+	display: none;
+	justify-content: flex-end;
+}
+
+.menu a {
+	padding: 8px 16px;
+	text-decoration: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-weight: 500;
+	border-radius: 90px;
+	font-size: small;
+}
+
+.menu a:hover {
+	color: #000;
+	background-color: #fff;
+}
+
+.hamburger {
+	display: block;
+	user-select: none;
+	appearance: none;
+
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+}
+
+.hamburger span {
+	display: block;
+	width: 33px;
+	height: 4px;
+	margin-bottom: 5px;
+
+	background-color: var(--light);
+	border-radius: 6px;
+
+	transform-origin: 0 0;
+	transition: 0.4s;
+}
+
+.hamburger:hover span:nth-child(2) {
+	transform: translateX(10px);
+	background-color: var(--primary);
+}
+
+.active-hamburger:hover span {
+	background-color: var(--primary);
+}
+.active-hamburger span:nth-child(1) {
+	transform: translate(0px, -2px) rotate(44deg);
+}
+.active-hamburger span:nth-child(2) {
+	transform: translate(0px, -2px) rotate(44deg);
+	opacity: 0;
+}
+.active-hamburger span:nth-child(3) {
+	transform: translate(-2px, 5px) rotate(-44deg);
+}
+
+.nav-dropdown {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	width: 100vw;
+	height: 100%;
+	padding: 10px 0;
+	background-color: var(--primary);
+}
+.nav-dropdown a {
+	padding: 8px 16px;
+	margin: 0 16px;
+
+	text-decoration: none;
+	color: var(--dark);
+	text-transform: uppercase;
+	font-weight: 500;
+	border-radius: 90px;
+}
+.nav-dropdown a:hover {
+	color: var(--primary);
+	background-color: var(--dark);
+}
+
+@media (min-width: 768px) {
+	.hamburger {
+		display: none;
+	}
+	.menu {
+		display: block;
+	}
+
+	.nav-dropdown {
+		display: none;
+	}
+}
