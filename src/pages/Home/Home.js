@@ -5,10 +5,13 @@
 
 // import { Col, Row } from "reactstrap";
 import Navbar from "../../components/Navbar/Navbar";
+import SideNavBar from "../../components/SideNavbar/SideNavbar";
 
 import Timein from "../../components/Tables/Timein";
 import Timeout from "../../components/Tables/Timeout";
 import Table2 from "../../components/Table2";
+
+import Clock from "../../components/Clock";
 
 const Home = () => {
     const styles = {
@@ -25,8 +28,13 @@ const Home = () => {
     table1: {
       marginBottom: 20
     },
-    Timein: {
-      marginBottom: 20
+    table: {
+      // marginBottom: 20,
+      // flexDirection: "row",
+      // alignItems: "center",
+      // justifyContent: "center",
+      // display: "flex",
+      // textAlign: "center"
     },
     Clock: {
       marginBottom: 40
@@ -37,21 +45,18 @@ const Home = () => {
       <>
        <Navbar />
          <div styles={styles.contentDiv}>
+          <Clock />
             <div styles={styles.contentMargin}>
                
-               <div style={styles.Timein}>
+               <div style={styles.table}>
+                  <Timein />
                   <Timein />
                 </div>
-               
-               <div style={styles.Timein}>
-                  <Timeout />
-                </div>
-                
-                  <div style={styles.table1}>
-                    <h5>EMPLOYEES LIST</h5>
-                      <Table2 />
-                </div>
-               
+              
+              <div style={styles.table1}>
+                <h5>EMPLOYEES LIST</h5>
+                  <Table2 />
+              </div>
             </div>
          </div>
       

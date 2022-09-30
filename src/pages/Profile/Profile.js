@@ -1,35 +1,39 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./profile.css";
+import { useEffect } from "react";
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 
-class Pro extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { apiResponse: "" };
-    }
+function Profile() {
+    const navigate = useNavigate('');
 
-    callAPI() {
-        fetch("http://localhost:8080/api/test/all")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }))
-            .catch(err => err);
-    }
 
-    componentDidMount() {
-        this.callAPI();
-    }
-
-    render() {
-        return (
-            <div className="Pro">
-                <header className="Pro-header">
-                    <img src={logo} className="Pro-logo" alt="logo" />
-                    {/* <h1 className="Pro-title">Welcome to Profile</h1> */}
-                </header>
-                <p className="Pro-intro">{this.state.apiResponse}</p>
-            </div>
-        );
-    }
+   const handleLogout = () => {
+       axios.post('http://localhost:272/api/auth/signout', 
+      )
+         .then(res => {
+            console.log(res.status)
+              alert('Logout Success')
+            navigate("/", { replace: true });
+         
+     
+         }).catch(error => {
+            alert('You Are Not Loggedin')
+            console.log(error)
+         })
+   }
+   
+   return(
+      <>
+         <h1 className="center"> PROFILE </h1>
+         
+         <div>
+            
+            <button
+               onClick={handleLogout}
+            > LOGOUT </button>
+         </div>
+      </>
+         
+   );
 }
 
-export default Pro;
+export default Profile;

@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
+import '../../styles/timeout.css';
+
 function Timeout() {
    const navigate = useNavigate('');
 
@@ -30,7 +32,7 @@ function Timeout() {
    return(<>
    
       <>
-         <a href="/home" alt="" class="link linkedin">
+         <a href="/home" alt="" style={{ color: '#000'}}>
             <AiOutlineArrowLeft size="40px" 
                   onMouseOver={({target})=>target.style.color="#000"}
             />

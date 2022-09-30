@@ -1,14 +1,14 @@
 
 .clock{
-   width: 95vw;
+   /* width: 95vw;
    height: 95vh;
-   overflow: hidden;
+   overflow: hidden; */
    text-align: center;
 }
 
 .clock h1{
    border: 2px solid burlywood;
-   width: 250px;
+   /* width: 250px; */
    margin: 40vh auto 0px auto;
    border-radius: 15px;
    padding: 10px 0;

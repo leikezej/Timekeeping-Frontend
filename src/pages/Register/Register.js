@@ -2,13 +2,21 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-import '../../styles/login.css';
+import '../../styles/register.css';
+
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import FormControl from '@mui/material/FormControl';
+import FormLabel from '@mui/material/FormLabel';
+
 
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
-
+import { AiOutlineTwitter, AiOutlineMail,  AiOutlineGitlab,  AiFillGithub } from "react-icons/ai";
+import { FiEye, FiEyeOff, FiKey, FiPhone, FiPocket, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
 
 function Register() {
    const navigate = useNavigate('');
@@ -17,11 +25,16 @@ function Register() {
    const [ email, setEmail ] = useState('');
    const [ phone, setPhone ] = useState('');
    const [ roles, setRoles ] = useState('');
+   const [ user, setUser ] = useState('');
+   const [ admin, setAdmin ] = useState('');
    const [ password, setPassword ] = useState('');
-  
-//   const [validate, setValidate] = useState({});
-  const [showPassword, setShowPassword] = useState(false);
+   
+   const [ showPassword, setShowPassword ] = useState(false);
+   const changeIcon = showPassword === true ? false : true;
       
+   const togglePassword = () => {
+    setShowPassword(!showPassword);
+   };
    // const handleName = (e) => {
    //    setName(e.target.value)
    // }
@@ -41,33 +54,32 @@ function Register() {
          name: name,
          email: email,
          phone: phone,
+         user: user,
+         admin: admin,
          roles: roles,
          password: password
       })
-         .then(result => {
-            console.log(result.data)
+         .then(res => {
+            console.log(res.data)
+            console.log(res.status)
                alert('Registration Successfull!')
-            localStorage.setItem("token", result.data.token);
-            navigate("/login", { replace: true });
-         
-            // if  (result.data.code === 500) {
-            //    alert('User Not Found!')
-            // }
+            localStorage.setItem("token", res.token);
+            navigate("/home", { replace: true });
          })
          .catch(error => {
             console.log(error)
-            alert(error.response.data.error.message)
-            // alert('Register Error')
+            alert('Register Error')
          })
    }
    
    return (<>
          <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '50px'}}> REGISTER </h1>
-               {/* <Link to={'/login'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> Login Here</Link> */}
+               <Link to={'/'} style={{  textAlign: 'center', color: '#000', display: 'block' }}> Login Here</Link>
          <br />
                      
          <div className="outcard">
-           Name:
+           Name: <br /> 
+          <FiUser /> {" "}
                <input
                onChange={(e) => {
                   setName(e.target.value)
@@ -78,6 +90,8 @@ function Register() {
                type="name" /> <br /> <br />
             
             Email: <br />
+          {/* <i class="fa fa-envelope"></i> {" "} */}
+             <AiOutlineMail />  {" "}
              <input
                onChange={(e) => {
                   setEmail(e.target.value)
@@ -87,7 +101,9 @@ function Register() {
                className="inputs"
                type="email" /> <br /> <br />
             
-            Phone:
+            Phone: <br />
+          {/* <i class="fa fa-mobile"></i>  */}
+          <FiPhone />{" "}
              <input
                onChange={(e) => {
                   setPhone(e.target.value)
@@ -98,6 +114,37 @@ function Register() {
                required
                 placeholder="(xxx) xxx-xxxx"
                /> <br /> <br />
+            
+            {/* Role: 
+            <div className="center">
+               <RadioGroup
+               row
+               aria-labelledby="demo-row-radio-buttons-group-label"
+               // name="row-radio-buttons-group"
+               name="position"
+               defaultValue="top"
+               >
+               
+               <FormControlLabel 
+                  onChange={(e) => {
+                        setUser(e.target.value)
+                     }}
+                  value="user" name="user" control={<Radio />} label="User" />
+               <FormControlLabel 
+                  onChange={(e) => {
+                        setAdmin(e.target.value)
+                     }}
+                  value="admin" name="admin" control={<Radio />} label="Admin" />
+               
+               <FormControlLabel
+                  value="disabled"
+                  disabled
+                  control={<Radio />}
+                  label="other"
+               />
+               </RadioGroup>
+            </div> */}
+            
             
             {/* <PhoneInput
                   type="numpad"
@@ -117,17 +164,25 @@ function Register() {
                   // onChange={setValue}
                   /><br /> <br /> */}
             
-            Role: <br />
+            Role: 
+            <br />
+             {/* <i class="fa fa-user-secret icon"></i>  */}
+             <FiPocket />{" "}
              <input
                onChange={(e) => {
                   setRoles(e.target.value)
                }}
-               placeholder={'admin, user'}
+               placeholder={'Admin, User'}
                value={roles}
+               type="text"
                className="inputs"
-               type="textr" /> <br /> <br />
+               />
                
-            Password:
+               <br /> <br /> 
+                              
+                              
+            Password: <br />
+             <FiKey />{" "}
                <input 
                   onChange={(e) => {
                      setPassword(e.target.value)
@@ -135,10 +190,38 @@ function Register() {
                   placeholder={'*******************'}
                   value={password}
                   required
-                  className="inputs" type="password" /> <br /> <br />
+                  type={showPassword ? "text" : "password"}
+                  className="inputs" /> {' '}
+               <span
+                    onClick={() => {
+                       togglePassword(changeIcon);
+                    }}
+                 >
+                    {changeIcon ? <FiEye /> : <FiEyeOff />}
+                 </span>
+                  <br /> <br />
             
-               <button onClick={handleRegister} className="btns"> Complete </button>
-               
+               <button onClick={handleRegister} className="btns"> Register </button>
+            <>
+            <br />
+               <center style={{ textAlign: 'center', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>Or Register With</center> <br />
+               <center>
+                     <a href="https://www.linkedin.com/in/jezekiel-isip-1ab872215/" >
+                        {" "}<FiLinkedin size="30px" color="#000" />{" "}
+                    </a>
+                    
+                    <a href="https://github.com/leikezej">
+                        {" "}<FiGithub size="30px" color="#000" 
+                        />{" "}
+                    </a>
+                    
+                    
+                    <a href="https://www.facebook.com/thebullier">
+                       {" "} <FiFacebook  size="30px" color="#000"
+                        />{" "}
+                    </a>
+               </center>
+            </>
          </div>
       </>
    )

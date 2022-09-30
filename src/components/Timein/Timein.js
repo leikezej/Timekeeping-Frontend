@@ -5,8 +5,9 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
+import '../../styles/timein.css';
+
 function Timein() {
-   const navigate = useNavigate('');
 
    const [ name, setName ] = useState('');
    const [ date, setDate ] = useState('');
@@ -30,11 +31,11 @@ function Timein() {
    return(
    <>
       <>
-               <a href="/home" alt="" class="link linkedin">
-                  <AiOutlineArrowLeft size="40px" 
-                      onMouseOver={({target})=>target.style.color="#000"}
-                  />
-              </a>
+            <a href="/home" alt="" style={{ color: '#000'}}>
+               <AiOutlineArrowLeft size="40px" 
+                     onMouseOver={({target})=>target.style.color="#000"}
+               />
+            </a>
       </>
             <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '10px', marginBottom: '10px'}}> Timein </h1>
          

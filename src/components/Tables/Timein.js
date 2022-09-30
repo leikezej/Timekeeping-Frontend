@@ -53,7 +53,7 @@ const AsyncAwait = () => {
   
   return (
       <div>
-      {<h3>TIMEIN</h3>}
+      {<h3 className="center">TIMEIN</h3>}
 <TableContainer component={Paper}>
       <Table sx={{ minWidth: 350 }} size="small" aria-label="a dense table">
         <TableHead>
