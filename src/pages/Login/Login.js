@@ -1,4 +1,4 @@
-import React, { userRef, errRef, useRef, useState } from 'react';
+import React, { useState } from 'react';
 
 import '../../styles/login.css';
 

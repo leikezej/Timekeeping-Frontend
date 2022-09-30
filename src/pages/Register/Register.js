@@ -4,18 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import '../../styles/register.css';
 
-import Radio from '@mui/material/Radio';
-import RadioGroup from '@mui/material/RadioGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
-
-
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-import { AiOutlineTwitter, AiOutlineMail,  AiOutlineGitlab,  AiFillGithub } from "react-icons/ai";
+import { AiOutlineMail } from "react-icons/ai";
 import { FiEye, FiEyeOff, FiKey, FiPhone, FiPocket, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
 
 function Register() {
@@ -25,8 +14,6 @@ function Register() {
    const [ email, setEmail ] = useState('');
    const [ phone, setPhone ] = useState('');
    const [ roles, setRoles ] = useState('');
-   const [ user, setUser ] = useState('');
-   const [ admin, setAdmin ] = useState('');
    const [ password, setPassword ] = useState('');
    
    const [ showPassword, setShowPassword ] = useState(false);
@@ -54,8 +41,6 @@ function Register() {
          name: name,
          email: email,
          phone: phone,
-         user: user,
-         admin: admin,
          roles: roles,
          password: password
       })
