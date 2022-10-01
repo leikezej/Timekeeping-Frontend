@@ -29,7 +29,30 @@ function Profile() {
             
             <button
                onClick={handleLogout}
+               // onClick={() => {
+                  // localStorage.removeItem('accessToken')
+                  // localStorage.removeItem('refreshToken')
+                  // {handleLogout}
+               // }}
             > LOGOUT </button>
+            <br />
+                        <button
+               onClick={() => {
+                  localStorage.setItem('arr', JSON.stringify([1, 2, 3, 4]))
+                  localStorage.setItem('obj', { name: 'name1', email: 'email1', phone: 'phone1' })
+               }}> Save </button>
+            <br />
+            
+                        <button
+                        onClick={() => {
+                           const obj = localStorage.getItem('obj')
+                           console.log((obj))
+                        }}
+            > GET </button>
+   
+   <br />
+   <br />
+
          </div>
       </>
          

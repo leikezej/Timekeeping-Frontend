@@ -17,11 +17,18 @@
 }
 
 h1{
-   font-family: 'Courier New', Courier, monospace;
-   color: san;
+   /* font-family: 'Courier New', Courier, monospace; */
+   /* font-family: 'Silkscreen', cursive; */
+   font-family: 'Share Tech', sans-serif;
 }
 
 .time{
    display: inline;
    flex-direction: row;;
+}
+
+p{
+   font-family: 'Roboto Condensed', sans-serif;
+   /* font-family: 'Caveat', cursive; */
+   font-size: large;
 }

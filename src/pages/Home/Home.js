@@ -4,14 +4,18 @@
 // import { Link, useNavigate } from 'react-router-dom';
 
 // import { Col, Row } from "reactstrap";
+import { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import SideNavBar from "../../components/SideNavbar/SideNavbar";
 
-import Timein from "../../components/Tables/Timein";
-import Timeout from "../../components/Tables/Timeout";
-import Table2 from "../../components/Table2";
+import Timein from "../../components/Tables/TimeinList";
+import Timeout from "../../components/Tables/TimeoutList";
+import Table2 from "../../components/Tables/Table2";
 
 import Clock from "../../components/Clock";
+import Date from "../../components/Date";
+import { useNavigate } from "react-router-dom";
+
 
 const Home = () => {
     const styles = {
@@ -37,20 +41,31 @@ const Home = () => {
       // textAlign: "center"
     },
     Clock: {
+      marginTop: 20,
       marginBottom: 40
     }
   };
+  
+  const navigate = useNavigate()
+  
+  useEffect(() => {
+    if(!localStorage.getItem('accessToken')) {
+        navigate('/home')
+    }
+  }, [])
 
    return(
       <>
        <Navbar />
          <div styles={styles.contentDiv}>
-          <Clock />
+            <br />
+            <center><Clock /></center>
+            {/* <center><Date /></center> */}
             <div styles={styles.contentMargin}>
                
                <div style={styles.table}>
                   <Timein />
-                  <Timein />
+                  <Timeout />
                 </div>
               
               <div style={styles.table1}>

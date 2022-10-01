@@ -6,24 +6,29 @@ const NavBar = () => {
 	const [activeHam, setActiveHam] = useState(false);
 	const menuItems = (
 		<>
-			<a href="/">
+			<a href="/home">
 				<AiOutlineHome size="17px" style={{ marginBottom: '4px'}} 
-				/>Home
+				/>{" "}Home
 			</a>
 			
 			<a href="/timein">
 				<AiOutlineClockCircle size="17px" style={{ marginBottom: '4px'}} 
-				/>Timein
+				/>{" "}Timein
 			</a>
 			
 			<a href="/timeout">
 				<AiOutlineFieldTime size="17px" style={{ marginBottom: '4px'}} 
-				/>Timeout
+				/>{" "}Timeout
+			</a>
+			
+			<a href="/timesheet">
+				<AiOutlineLineChart size="17px" style={{ marginBottom: '4px'}} 
+				/>{" "}TimeSheet
 			</a>
 			
 			<a href="/reports">
 				<AiOutlineLineChart size="17px" style={{ marginBottom: '4px'}} 
-				/>Reports
+				/>{" "}Reports
 			</a>
 			
 			

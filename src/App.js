@@ -10,6 +10,9 @@ import {
 
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
+import Dashboard from './pages/Dashboard/Dashboard';
+import TimeSheet from './pages/Dashboard/TimeSheet';
+import Reports from './pages/Dashboard/Reports';
 
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
@@ -32,7 +35,10 @@ function App() {
         
             <Route path="/home" element={<Home />} />
             <Route path="/profile" element={<Profile />} />
-            
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/timeSheet" element={<TimeSheet />} />
+            <Route path="/reports" element={<Reports />} />
+             
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/change-password" element={<ChangePassword />} />
             

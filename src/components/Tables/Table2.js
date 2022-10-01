@@ -56,6 +56,7 @@ const AsyncAwait = () => {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
+            <StyledTableCell>ID</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell align="left">Emails</StyledTableCell>
             <StyledTableCell align="left">Phones</StyledTableCell>
@@ -64,12 +65,13 @@ const AsyncAwait = () => {
         <TableBody>
           {users.map((user) => (
             <StyledTableRow 
-              key={user.name}
+              key={user.id}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <StyledTableCell component="th" scope="row">
-                {user.name}
+                {user.id}
               </StyledTableCell>
+              <StyledTableCell align="left">{user.name}</StyledTableCell>
               <StyledTableCell align="left">{user.email}</StyledTableCell>
               <StyledTableCell align="left">{user.phone}</StyledTableCell>
             </StyledTableRow>

@@ -44,17 +44,20 @@ function Register() {
          roles: roles,
          password: password
       })
-         .then(res => {
-            console.log(res.data)
-            console.log(res.status)
-               alert('Registration Successfull!')
-            localStorage.setItem("token", res.token);
-            navigate("/home", { replace: true });
-         })
-         .catch(error => {
-            console.log(error)
-            alert('Register Error')
-         })
+      .then(res => {
+         console.log(res.data)
+         console.log(res.status)
+            alert('Registration Successfull!')
+         localStorage.setItem("token", res.token);
+         navigate("/home", { replace: true });
+      })
+      .catch(error => {
+         console.log(error)
+         alert('Register Error')
+      })
+         
+      // if(!name || !email || !password)
+      // return result.status(400).json({msg: "Please fill in all fields."})
    }
    
    return (<>
@@ -176,7 +179,7 @@ function Register() {
                   value={password}
                   required
                   type={showPassword ? "text" : "password"}
-                  className="inputs" /> {' '}
+                  className="pas-inputs" /> {' '}
                <span
                     onClick={() => {
                        togglePassword(changeIcon);

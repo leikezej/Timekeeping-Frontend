@@ -1,0 +1,26 @@
+.App {
+  min-height: 100vh;
+  background-color: #2d3436;
+  color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 35px;
+}
+
+.App svg {
+  margin: 0 5px;
+  font-size: 35px;
+  text-transform: capitalize;
+  font-weight: 600;
+  width: 35px;
+  height: 35px;
+}
+
+.App p {
+  padding-top: 5px;
+  margin: 0 5px;
+  text-transform: capitalize;
+  font-weight: 600;
+}

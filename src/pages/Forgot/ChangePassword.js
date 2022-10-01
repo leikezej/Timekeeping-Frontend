@@ -20,7 +20,7 @@ function ChangePassword() {
          console.log(result.data)
       
          if (result.data.code === 200) {
-            navigate('/signin')
+            navigate('/')
          }
          // if (result.data.code === 500) {
          //    alert('User Not Found!')
@@ -35,25 +35,31 @@ function ChangePassword() {
 
    return(
    <>
-      <h1 className="center"> New Pssword </h1>
+      <h1 className="center" style={{
+            fontFamily: 'Kaushan Script', 
+            marginTop: '50px', 
+            marginBottom: '25px',
+            fontWeight: '900'
+      }}> Change Password </h1>
       
       <div className="outcard">
-         OTP 
+         OTP: <br />
          <input className="inputs" type="text" 
             value={otp}
             onChange={(e) => {
                setOtp(e.target.value)
             }}
          />
-         
-         New Password 
+         <br />
+         New Password: <br />
          <input className="inputs" type="text" 
              value={password}
              onChange={(e) => {
                setPassword(e.target.value)
             }}
          />
-         
+         <br />
+         <br />
          <button
             onClick={handleSubmit}
          style={{ marginTop: '5px' }} className="btns"> Change Password </button>

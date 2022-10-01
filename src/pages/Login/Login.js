@@ -4,8 +4,9 @@ import '../../styles/login.css';
 
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import { FiEye, FiEyeOff, FiKey, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiKey, FiUser } from "react-icons/fi";
 import { BsLock } from "react-icons/bs";
+import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-icons/fa";
 
 function Login() {
    const navigate = useNavigate('');
@@ -19,14 +20,6 @@ function Login() {
     setShowPassword(!showPassword);
   };
 
-//   const handleEmail = (e) => {
-//     setEmail(e.target.value)
-//   }
-
-//   const handlePassword = (e) => {
-//     setPassword(e.target.value)
-//   }
-
    const handleLogin = () => {
       console.log({ email, password})
        axios.post('http://localhost:272/api/auth/signin', 
@@ -34,34 +27,29 @@ function Login() {
          email: email,
          password: password
       })
+//         if (!email || !password) {
+//   	return res.status(422).send({error: "You must provide login and password"})
+//   }
          .then(res => {
             console.log(res.status)
-            console.log(res.accessToken)
-            console.log(res.data)
-            console.log(res.status)
-              alert('Login Success')
+            alert('Login Success')
+            localStorage.setItem('accessToken', res.data.accessToken)
+            localStorage.setItem('refreshToken', res.data.refreshToken)
+            localStorage.setItem('UserEmail', res.data.email)
             navigate("/home", { replace: true });
+               
+      if (!email || !password) {
+         return res.status(422).send({error: "You must provide login and password"})
+      }
+      
+      console.log(res.data)
+         // console.log(res.data.id)
+         // console.log(res.data.name)
+         // console.log(res.data.email)
+         // console.log(res.data.role)
+         // console.log(res.data.accessToken)
+         // console.log(res.data.refreshToken)
          
-         // if (res.status(401) ) {
-         //    alert('Incorrect Password')
-         //    console.log('Incorrect Password')
-         // }
-         // if (res.status(404) ) {
-         //    alert('User Not Found')
-         //    console.log('user not found')
-         // }
-         // if (res.status(200) ) {
-         //       console.log('success')
-         //       navigate('home')
-               // localStorage.setItem('TOKEN', res.data.token)
-               // localStorage.setItem('EMAIL', res.data.email)
-         // }
-         console.log(res.data.id)
-         console.log(res.data.name)
-         console.log(res.data.email)
-         console.log(res.data.role)
-         console.log(res.data.accessToken)
-         console.log(res.data.refreshToken)
          }).catch(error => {
             alert('Login Error')
             console.log('Sorry Error on login')
@@ -69,17 +57,20 @@ function Login() {
    }
 
    return (<>
-         <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '50px', marginBottom: '25px'}}> LOGIN </h1>
+         <h1 className="center" style={{ 
+               fontFamily: 'Kaushan Script', 
+               marginTop: '50px', 
+               marginBottom: '25px',
+               fontWeight: '900'
+            }}> LOGIN </h1>
                <Link to={'/register'} style={{ marginBottom: '30px', color: '#000', textAlign: 'center', display: 'block' }}> Register Here</Link>
                      
          <div className="outcard">         
             Email:
             <br />
-          {/* <i class="fa fa-user"></i> {" "} */}
           <FiUser /> {" "}
              <input
                required
-               // onChange={handleEmail}
                onChange={(e) => {
                   setEmail(e.target.value)
                }}
@@ -110,7 +101,14 @@ function Login() {
                      
                   <br />
                   <br />
-                     <Link to={'/forgot-password'} style={{ marginTop: '5px', textAlign: 'center', display: 'block', marginLeft: '350px', color: '#000', fontSize: '15px' }}> <BsLock style={{ marginBottom: '3px'}}/>Forgot Password?</Link>
+                     <Link to={'/forgot-password'} style={{ 
+                           marginTop: '5px', 
+                           textAlign: 'center', 
+                           display: 'block', 
+                           marginLeft: '300px', 
+                           color: '#000', 
+                           fontSize: '15px' 
+                        }}> <BsLock style={{ marginBottom: '3px'}}/>Forgot Password?</Link>
                   <br />
                   
                <button onClick={handleLogin} className="btns"> LOGIN </button>
@@ -118,20 +116,16 @@ function Login() {
                
                <center style={{ textAlign: 'center', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>Login Using:</center> <br />
                <center>
-               <a href="https://www.linkedin.com/in/jezekiel-isip-1ab872215/" >
-                  {" "}<FiLinkedin size="30px" color="#000" />{" "}
-              </a>
+                  {" "}<FaGoogle size="30px" color="#000" />{" "}
               
-              <a href="https://github.com/leikezej">
-                  {" "}<FiGithub size="30px" color="#000" 
-                  />{" "}
-              </a>
+                  {" "}<FaLinkedinIn size="36px" color="#000" />{" "}
               
+                  {" "}<FaGithub size="30px" color="#000" /> {" "}
+
+                  {" "}<FaGitlab size="30px" color="#000" /> {" "}
               
-              <a href="https://www.facebook.com/thebullier">
-                 {" "} <FiFacebook  size="30px" color="#000"
-                  />{" "}
-              </a>
+                 {" "} <FaFacebookF  size="30px" color="#000" /> {" "}
+                 
                </center>
                   <br />
          </div>
