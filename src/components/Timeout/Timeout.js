@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -6,6 +7,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import '../../styles/timeout.css';
 
 function Timeout() {
+  const navigate = useNavigate()
 
    const [ name, setName ] = useState('');
    const [ date, setDate ] = useState('');
@@ -25,6 +27,12 @@ function Timeout() {
          alert('TIMEOUT ERROR')
       })
    }
+   
+   useEffect(() => {
+         if(!localStorage.getItem('accessToken')) {
+        navigate('/timeout')
+    }
+  }, [])
 
    return(<>
    

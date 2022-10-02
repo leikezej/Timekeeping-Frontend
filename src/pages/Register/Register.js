@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import '../../styles/register.css';
 
 import { AiOutlineMail } from "react-icons/ai";
-import { FiEye, FiEyeOff, FiKey, FiPhone, FiPocket, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiKey, FiPhone, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
 
 function Register() {
    const navigate = useNavigate('');
@@ -13,7 +13,6 @@ function Register() {
    const [ name, setName ] = useState('');
    const [ email, setEmail ] = useState('');
    const [ phone, setPhone ] = useState('');
-   const [ roles, setRoles ] = useState('');
    const [ password, setPassword ] = useState('');
    
    const [ showPassword, setShowPassword ] = useState(false);
@@ -35,29 +34,25 @@ function Register() {
    // }
    
    const handleRegister = () => {
-      console.log({ name, email, phone, roles, password })
+      console.log({ name, email, phone, password })
       axios.post('http://localhost:272/api/auth/signup', 
       {
          name: name,
          email: email,
          phone: phone,
-         roles: roles,
          password: password
       })
-      .then(res => {
-         console.log(res.data)
-         console.log(res.status)
-            alert('Registration Successfull!')
-         localStorage.setItem("token", res.token);
-         navigate("/home", { replace: true });
-      })
-      .catch(error => {
-         console.log(error)
-         alert('Register Error')
-      })
-         
-      // if(!name || !email || !password)
-      // return result.status(400).json({msg: "Please fill in all fields."})
+         .then(res => {
+            console.log(res.data)
+            console.log(res.status)
+               alert('Registration Successfull!')
+            localStorage.setItem("token", res.token);
+            navigate("/", { replace: true });
+         })
+         .catch(error => {
+            console.log(error)
+            alert('Register Error')
+         })
    }
    
    return (<>
@@ -152,20 +147,7 @@ function Register() {
                   // onChange={setValue}
                   /><br /> <br /> */}
             
-            Role: 
-            <br />
-             {/* <i class="fa fa-user-secret icon"></i>  */}
-             <FiPocket />{" "}
-             <input
-               onChange={(e) => {
-                  setRoles(e.target.value)
-               }}
-               placeholder={'Admin, User'}
-               value={roles}
-               type="text"
-               className="inputs"
-               />
-               
+
                <br /> <br /> 
                               
                               
@@ -179,7 +161,7 @@ function Register() {
                   value={password}
                   required
                   type={showPassword ? "text" : "password"}
-                  className="pas-inputs" /> {' '}
+                  className="inputs" /> {' '}
                <span
                     onClick={() => {
                        togglePassword(changeIcon);

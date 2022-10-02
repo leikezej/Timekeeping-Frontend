@@ -40,7 +40,45 @@ const Profile = () => {
                      <div className="col-md-4">
                         <div className="profile-work">
                            <p> Work Link </p>
-                           <a href="www.youtube.com">Youtube</a>
+                           <a href="https://www.youtube.com">Youtube</a>
+                           <a href="https://www.youtube.com">Instagram</a>
+                           <a href="https://www.youtube.com">Twitter</a>
+                           <a href="https://www.youtube.com">Github</a>
+                           <a href="https://www.youtube.com">Linkedin</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="col-md-8 pl-5 about-info">
+                     <div className="tab-content profile-tab" id="myTabContent">
+                        <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           
+                              <div className="row">
+                                 <div className="col-md-6">
+                                    <label>USER ID</label>
+                                 </div>
+                                 <div className="col-md-6">
+                                    <p>123120831230-123123</p>
+                                 </div>
+                              </div>
+                              
+                              <div className="row mt-3">
+                                 <div className="col-md-6">
+                                    <label>Name</label>
+                                 </div>
+                                 <div className="col-md-6">
+                                    <p>Batman</p>
+                                 </div>
+                              </div>
+                              
+                              <div className="row">
+                                 <div className="col-md-6">
+                                    <label>USER ID</label>
+                                 </div>
+                                 <div className="col-md-6">
+                                    <p>123120831230-123123</p>
+                                 </div>
+                              </div>
+                              
                         </div>
                      </div>
                   </div>

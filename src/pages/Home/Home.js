@@ -14,6 +14,7 @@ import Table2 from "../../components/Tables/Table2";
 
 import Clock from "../../components/Clock";
 // import Date from "../../components/Date";
+import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
@@ -45,10 +46,17 @@ const Home = () => {
     }
   };
   
+  const navigate = useNavigate()
   
   useEffect(() => {
     if(!localStorage.getItem('accessToken')) {
-        // navigate('/home')
+      navigate('/home')
+        console.log('home')
+        // alert('home')
+    } else {
+      console.log('login')
+      navigate('/');
+        alert('NO ACCESS')
     }
   }, [])
 
@@ -60,10 +68,23 @@ const Home = () => {
             <center><Clock /></center>
             {/* <center><Date /></center> */}
             <div styles={styles.contentMargin}>
-               
                <div style={styles.table}>
                   <Timein />
                   <Timeout />
+                 {/* <button
+               onClick={() => {
+                  localStorage.setItem('arr', JSON.stringify([1, 2, 3, 4]))
+                  localStorage.setItem('obj', { name: 'name1', email: 'email1', phone: 'phone1' })
+               }}> Save </button>
+            <br />
+            <br />
+            <br />
+                             <button
+               onClick={() => {
+                  localStorage.removeItem('Acces Token', 'accessToken')
+                  localStorage.removeItem('Refresh Token', 'refreshToken')
+               console.log()
+               }}> OUT </button> */}
                 </div>
               
               <div style={styles.table1}>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -19,6 +20,11 @@ function Profile() {
             console.log(error)
          })
    }
+              useEffect(() => {
+    if(!localStorage.getItem('accessToken')) {
+        navigate('/profile')
+    }
+  }, [])
    
    return(
       <>

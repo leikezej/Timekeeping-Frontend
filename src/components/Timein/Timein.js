@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -6,6 +7,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import '../../styles/timein.css';
 
 function Timein() {
+  const navigate = useNavigate()
 
    const [ name, setName ] = useState('');
    const [ date, setDate ] = useState('');
@@ -25,6 +27,11 @@ function Timein() {
          alert('TIMEIN ERROR')
       })
    }
+              useEffect(() => {
+    if(!localStorage.getItem('accessToken')) {
+        navigate('/timein')
+    }
+  }, [])
 
    return(
    <>

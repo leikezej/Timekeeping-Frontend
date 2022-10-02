@@ -40,14 +40,16 @@ function Login() {
       }
       
       console.log(res.data)
-         // console.log(res.data.id)
-         // console.log(res.data.name)
-         // console.log(res.data.email)
-         // console.log(res.data.role)
-         // console.log(res.data.accessToken)
-         // console.log(res.data.refreshToken)
+      console.log(res.status)
+         console.log(res.data.id)
+         console.log(res.data.name)
+         console.log(res.data.email)
+         console.log(res.data.role)
+         console.log(res.data.accessToken)
+         console.log(res.data.refreshToken)
          
          }).catch(error => {
+               console.log(error.message)
             alert('Login Error')
             console.log('Sorry Error on login')
          })

@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/App.css';
-// import PrivateRoute from './utils/PrivateRoute';
+import PrivateRoute from './utils/PrivateRoute';
 
 import {
   // Browser as Router,
@@ -18,18 +18,20 @@ import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 
 import ForgotPassword from './pages/Forgot/ForgotPassword';
-import ResetPassword from './pages/Forgot/ResetPassword';
-import ChangePassword from './pages/Forgot/ChangePassword';
+import ChangePassword from './pages/Forgot/ResetPassword';
 
 import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
 
-// const ROLES = {
-//   'User': 2001,
-//   'Admin': 5150
-// }
+const ROLES = {
+  'User': 2001,
+  'Admin': 5150
+}
+
+
 
 function App() {
+
   return (
     <div>
         <Routes>
@@ -43,7 +45,6 @@ function App() {
             <Route path="/reports" element={<Reports />} />
              
             <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/change-password" element={<ChangePassword />} />
             
             <Route path="/timein" element={<Timein />} />
