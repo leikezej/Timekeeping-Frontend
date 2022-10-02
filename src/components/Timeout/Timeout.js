@@ -1,14 +1,11 @@
-import { setDate } from "date-fns";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import '../../styles/timeout.css';
 
 function Timeout() {
-   const navigate = useNavigate('');
 
    const [ name, setName ] = useState('');
    const [ date, setDate ] = useState('');

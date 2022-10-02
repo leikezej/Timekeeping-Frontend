@@ -5,7 +5,6 @@ import {
   // Browser as Router,
   Routes,
   Route,
-  Link
 } from "react-router-dom";
 
 import Home from './pages/Home/Home';
@@ -22,8 +21,6 @@ import ChangePassword from './pages/Forgot/ChangePassword';
 
 import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
-
-import Navbar from './components/Navbar/Navbar';
 
 function App() {
 

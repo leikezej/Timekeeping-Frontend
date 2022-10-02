@@ -6,15 +6,14 @@
 // import { Col, Row } from "reactstrap";
 import { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import SideNavBar from "../../components/SideNavbar/SideNavbar";
+// import SideNavBar from "../../components/SideNavbar/SideNavbar";
 
 import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
 import Table2 from "../../components/Tables/Table2";
 
 import Clock from "../../components/Clock";
-import Date from "../../components/Date";
-import { useNavigate } from "react-router-dom";
+// import Date from "../../components/Date";
 
 
 const Home = () => {
@@ -46,11 +45,10 @@ const Home = () => {
     }
   };
   
-  const navigate = useNavigate()
   
   useEffect(() => {
     if(!localStorage.getItem('accessToken')) {
-        navigate('/home')
+        // navigate('/home')
     }
   }, [])
 

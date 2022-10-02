@@ -27,15 +27,12 @@ function Login() {
          email: email,
          password: password
       })
-//         if (!email || !password) {
-//   	return res.status(422).send({error: "You must provide login and password"})
-//   }
          .then(res => {
             console.log(res.status)
             alert('Login Success')
-            localStorage.setItem('accessToken', res.data.accessToken)
-            localStorage.setItem('refreshToken', res.data.refreshToken)
-            localStorage.setItem('UserEmail', res.data.email)
+               localStorage.setItem('Access Token', res.data.accessToken)
+               localStorage.setItem('Refresh Token', res.data.refreshToken)
+               localStorage.setItem('User Email', res.data.email)
             navigate("/home", { replace: true });
                
       if (!email || !password) {
