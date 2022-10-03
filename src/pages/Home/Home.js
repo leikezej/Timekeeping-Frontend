@@ -3,6 +3,10 @@ import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
 import TimeSheet from "../Dashboard/TimeSheet";
 
+import Navbar from "../../components/Navbar/Navbar";
+
+import { Col, Row } from "reactstrap";
+
 import Clock from "../../components/Clock";
 
 const Home = () => {
@@ -40,6 +44,8 @@ const Home = () => {
    return(
       <>
          <div styles={styles.contentDiv}>
+              <Navbar />
+            <br />
             <br />
             
             <center><Clock /></center>

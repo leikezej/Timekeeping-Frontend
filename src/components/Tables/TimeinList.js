@@ -71,14 +71,16 @@ const AsyncAwait = () => {
             <StyledTableCell align="center"><RiUser2Line style={{ marginBottom: '4px'}} />{" "}Name</StyledTableCell>
             <StyledTableCell align="center"><BsClockHistory style={{ marginBottom: '4px'}} />{" "}Time</StyledTableCell>
             <StyledTableCell align="center"><BsCalendarCheck style={{ marginBottom: '4px'}} />{" "}Date</StyledTableCell>
-            <StyledTableCell backgroundColor="#999" align="center"><RiFolderUserLine style={{ marginBottom: '4px'}} />{" "}Status</StyledTableCell>
+            <StyledTableCell align="center"><RiFolderUserLine style={{ marginBottom: '4px'}} />{" "}Status</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {timein.map((timein) => (
             <StyledTableRow 
               key={timein.name}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              sx={{ '&:last-child td, &:last-child th': { border: 0  } }}
+              // sx={{ '&:first-child td, &:first-child th': { backgroundColor: '#123' } }} // second top
+              // sx={{ '&:last-child th, &:last-child tr': { backgroundColor: '#123' } }}
             >
               <StyledTableCell component="th" scope="row">
                 {timein.id}
@@ -86,7 +88,7 @@ const AsyncAwait = () => {
               <StyledTableCell align="center">{timein.name}</StyledTableCell>
               <StyledTableCell align="center">{timein.time}</StyledTableCell>
               <StyledTableCell align="center">{timein.date}</StyledTableCell>
-              <StyledTableCell align="center">{timein.status}</StyledTableCell>
+              <StyledTableCell><p style={{ backgroundColor: 'green'}}>{timein.status}</p></StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

@@ -20,6 +20,8 @@ h1{
    /* font-family: 'Courier New', Courier, monospace; */
    /* font-family: 'Silkscreen', cursive; */
    font-family: 'Share Tech', sans-serif;
+   font-size: 4em;
+   font-weight: bolder;
 }
 
 .time{

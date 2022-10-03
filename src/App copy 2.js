@@ -23,7 +23,7 @@ import ChangePassword from './pages/Forgot/ChangePassword';
 import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
 
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 
 // const ROLES = {
 //   'User': 2001,
