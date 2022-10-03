@@ -8,28 +8,36 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 
+import { BsClockHistory, BsCalendarCheck } from "react-icons/bs";
+import { RiFolderUserLine, RiUser2Line } from "react-icons/ri";
+
+import  '../../styles/timein.css';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   //th
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
     color: theme.palette.common.white,
-    fontWeight: 800,
-    fontSize: 18,
+    fontWeight: 600,
+    fontSize: 17,
   },
 
   [`&.${tableCellClasses.body}`]: {
-    backgroundColor: theme.palette.common.white,
+    // backgroundColor: theme.palette.common.white,
+    backgroundColor: "#2222",
     color: theme.palette.common.black,
-    fontWeight: 600,
+    fontWeight: 550,
+    fontFamily: 'Roboto Condensed',
     fontSize: 14,
-    width: 25,
+    width: 20,
+    textAlign: 'center'
   },
 }));
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+    // backgroundColor: theme.palette.action.hover,
+    backgroundColor: '#ccc',
   },
   // hide last border
   // '&:last-child td, &:last-child th': {
@@ -54,15 +62,16 @@ const AsyncAwait = () => {
   return (
       <div>
       {<h3 className="center">TIMEIN</h3>}
-<TableContainer component={Paper}>
-      <Table sx={{ minWidth: 350 }} size="small" aria-label="a dense table">
+  <TableContainer component={Paper}>
+      {/* <Table sx={{ width: '100%' }} size="small" aria-label="a dense table"> */}
+      <Table sx={{ minWidth: 620 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>ID</StyledTableCell>
-            <StyledTableCell align="center">Name</StyledTableCell>
-            <StyledTableCell align="center">TIME</StyledTableCell>
-            <StyledTableCell align="center">DATE</StyledTableCell>
-            <StyledTableCell align="center">STATUS</StyledTableCell>
+            <StyledTableCell align="center"><RiFolderUserLine style={{ marginBottom: '4px'}} />{" "}ID</StyledTableCell>
+            <StyledTableCell align="center"><RiUser2Line style={{ marginBottom: '4px'}} />{" "}Name</StyledTableCell>
+            <StyledTableCell align="center"><BsClockHistory style={{ marginBottom: '4px'}} />{" "}Time</StyledTableCell>
+            <StyledTableCell align="center"><BsCalendarCheck style={{ marginBottom: '4px'}} />{" "}Date</StyledTableCell>
+            <StyledTableCell backgroundColor="#999" align="center"><RiFolderUserLine style={{ marginBottom: '4px'}} />{" "}Status</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>

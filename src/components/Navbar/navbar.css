@@ -13,7 +13,8 @@ nav {
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
-	max-width: 1280px;
+	/* max-width: 1280px; */
+	max-width: '100%';
 	padding: 0 30px;
 	margin: 0 auto;
 }
@@ -44,6 +45,7 @@ nav {
 .menu a:hover {
 	color: #000;
 	background-color: #fff;
+	font-style: italic;
 }
 
 .hamburger {

@@ -40,7 +40,7 @@ function Timein() {
                />
             </a>
       </>
-            <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '10px', marginBottom: '10px'}}> Timein </h1>
+            <h1 className="center" style={{ fontFamily: 'Share Tech', marginTop: '10px', marginBottom: '10px'}}> Timein </h1>
          
             <div className="outcard" style={{ marginTop: '20px', marginBottom: '10px'}}>
                Name:

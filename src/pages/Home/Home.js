@@ -1,20 +1,20 @@
-import Navbar from "../../components/Navbar/Navbar";
 
 import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
-import Table2 from "../../components/Tables/Table2";
+import TimeSheet from "../Dashboard/TimeSheet";
 
 import Clock from "../../components/Clock";
 
 const Home = () => {
     const styles = {
     contentDiv: {
+      flex: 1,
       display: "flex",
       justifyContent: "center",
       alignItems: "center"
     },
     contentMargin: {
-      width: "100vw",
+      // width: "100vw",
       // marginLeft: "10px",
       // height: "100vw"
     },
@@ -25,8 +25,10 @@ const Home = () => {
       // marginBottom: 20,
       // flexDirection: "row",
       // alignItems: "center",
-      // justifyContent: "center",
-      // display: "flex",
+      justifyContent: "space-evenly",
+      display: "flex",
+      flex: 1,
+      width: '100%'
       // textAlign: "center"
     },
     Clock: {
@@ -37,7 +39,6 @@ const Home = () => {
   
    return(
       <>
-       <Navbar />
          <div styles={styles.contentDiv}>
             <br />
             
@@ -47,7 +48,6 @@ const Home = () => {
                
                <div style={styles.table}>
                   <Timein />
-                  <br />
                   <Timeout />
                 </div>
             
@@ -55,8 +55,8 @@ const Home = () => {
             <br />
             
               <div style={styles.table1}>
-                <h5>EMPLOYEES LIST</h5>
-                  <Table2 />
+                {/* <h5>EMPLOYEES LIST</h5> */}
+                  <TimeSheet />
               </div>
               
             </div>

@@ -2,43 +2,67 @@ import React, { Component } from 'react'
 
 import '../../styles/timesheet.css';
 
-import user1 from '../../assets/user1.png';
-import user2 from '../../assets/user2.png';
-import user3 from '../../assets/user3.png';
-import user4 from '../../assets/user4.png';
-import user5 from '../../assets/user5.png';
-
 class Table extends Component {
    constructor(props) {
       super(props) 
       this.state = { 
-         students: [
-            { id: 1, avatar: user1, name: 'Wasif', age: 21, email: 'wasif@email.com' },
-            { id: 2, avatar: user2, name: 'Ali', age: 19, email: 'ali@email.com' },
-            { id: 3, avatar: user3, name: 'Saad', age: 16, email: 'saad@email.com' },
-            { id: 4, avatar: user4, name: 'Asad', age: 25, email: 'asad@email.com' },
-            { id: 5, avatar: user5, name: 'Asad', age: 25, email: 'asad@email.com' }
+         timesheet: [
+              {
+        image: "../../assets/user1.png",
+        name: "Jezekiel Isip",
+        start_time: "07:15:12 AM",     
+        end_time: "07:15:12 PM",
+        total_time: "8 hrs"
+    },
+    {
+        image: "../../assets/user2.png",
+        name: "Jezekiel Isip",
+        start_time: "07:15:12 AM",     
+        end_time: "07:15:12 PM",
+        total_time: "8 hrs"
+    },
+    {
+        image: "../../assets/user3.png",
+        name: "Jezekiel Isip",
+        start_time: "07:15:12 AM",     
+        end_time: "07:15:12 PM",
+        total_time: "8 hrs"
+    },
+    {
+        image: '../../assets/user4.png',
+        name: "Jezekiel Isip",
+        start_time: "07:15:12 AM",     
+        end_time: "07:15:12 PM",
+        total_time: "8 hrs"
+    },
+    {
+        image: "../../assets/user5.png",
+        name: "Jezekiel Isip",
+        start_time: "07:15:12 AM",     
+        end_time: "07:15:12 PM",
+        total_time: "8 hrs"
+    }
          ]
       }
    }
    
       renderTableHeader() {
-      let header = Object.keys(this.state.students[0])
+      let header = Object.keys(this.state.timesheet[0])
       return header.map((key, index) => {
          return <th key={index}>{key.toUpperCase()}</th>
       })
    }
 
    renderTableData() {
-      return this.state.students.map((student, index) => {
-         const { id, avatar, name, age, email } = student 
+      return this.state.timesheet.map((timesheet, index) => {
+         const { image, name, start_time, end_time, total_time } = timesheet 
          return (
-            <tr key={id}>
-               <td>{id}</td>
-               <td>{avatar}</td>
+            <tr key={image}>
+               <td>{image}</td>
                <td>{name}</td>
-               <td>{age}</td>
-               <td>{email}</td>
+               <td>{start_time}</td>
+               <td>{end_time}</td>
+               <td>{total_time}</td>
             </tr>
          )
       })
@@ -47,8 +71,8 @@ class Table extends Component {
    render() {
       return (
          <div>
-            <h1 id='title'>Employee Timesheets</h1>
-            <table id='students'>
+            {/* <h1 id='title'>Employee Timesheets</h1> */}
+            <table id='timesheet'>
                <tbody>
                   <tr>{this.renderTableHeader()}</tr>
                   {this.renderTableData()}
