@@ -41,7 +41,6 @@ const Home = () => {
     }
   };
   
-  
   useEffect(() => {
     if(!localStorage.getItem('accessToken')) {
       navigate('/home')
