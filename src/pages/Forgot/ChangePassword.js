@@ -14,7 +14,7 @@ function ChangePassword() {
       axios.post('http://localhost:8080/api/auth/submit-otp', 
       {
          password: password,
-         passwordConfirm, passwordConfirm
+         passwordConfirm: passwordConfirm
       })
       .then(result => {
          alert('Success')

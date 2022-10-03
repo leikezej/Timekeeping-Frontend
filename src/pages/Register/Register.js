@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -22,11 +23,11 @@ function Register() {
     setShowPassword(!showPassword);
    };
    
-      useEffect(() => {
-         if(!localStorage.getItem('accessToken')) {
-        navigate('/register')
-    }
-  }, [])
+//       useEffect(() => {
+//          if(!localStorage.getItem('accessToken')) {
+//         navigate('/')
+//     }
+//   }, [])
    
    const handleRegister = () => {
       console.log({ name, email, phone, password })
@@ -99,7 +100,7 @@ function Register() {
                   onChange={(e) => {
                      setPassword(e.target.value)
                   }}
-                  placeholder={'*******************'}
+                  placeholder={'************'}
                   value={password}
                   required
                   type={showPassword ? "text" : "password"}

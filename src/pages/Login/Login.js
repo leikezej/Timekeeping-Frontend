@@ -37,15 +37,9 @@ function Login() {
          password: password
       })
          .then(res => {
-           const accessToken  =  res.data.token;
-            localStorage.setItem("token", accessToken);
-            console.log(res.status)
             alert('Login Success')
-               localStorage.setItem('Access Token', res.data.accessToken)
-               localStorage.setItem('Refresh Token', res.data.refreshToken)
-               localStorage.setItem('User Email', res.data.email)
             navigate("/home", { replace: true });
-               
+         
             console.log(res.data)
             console.log(res.status)
             console.log(res.data.id)
@@ -61,6 +55,7 @@ function Login() {
             console.log('Sorry Error on login')
          })
    }
+
 
    return (<>
          <h1 className="center" style={{ 

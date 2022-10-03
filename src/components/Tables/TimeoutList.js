@@ -62,6 +62,7 @@ const AsyncAwait = () => {
             <StyledTableCell align="center">Name</StyledTableCell>
             <StyledTableCell align="center">TIME</StyledTableCell>
             <StyledTableCell align="center">DATE</StyledTableCell>
+            <StyledTableCell align="center">STATUS</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -76,6 +77,7 @@ const AsyncAwait = () => {
               <StyledTableCell align="center">{timeout.name}</StyledTableCell>
               <StyledTableCell align="center">{timeout.time}</StyledTableCell>
               <StyledTableCell align="center">{timeout.date}</StyledTableCell>
+              <StyledTableCell align="center">{timeout.status}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

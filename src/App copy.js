@@ -24,14 +24,12 @@ import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
 
 const ROLES = {
-  'User': 2001,
-  'Admin': 5150
+  'User': 0420,
+  'Admin': 04230
 }
 
 
-
 function App() {
-
   return (
     <div>
         <Routes>
