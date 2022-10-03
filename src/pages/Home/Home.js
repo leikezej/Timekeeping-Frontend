@@ -1,12 +1,5 @@
-// import { setDate } from "date-fns";
-// import { useState } from "react";
-
-// import { Link, useNavigate } from 'react-router-dom';
-
-// import { Col, Row } from "reactstrap";
 import { useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-// import SideNavBar from "../../components/SideNavbar/SideNavbar";
 
 import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
@@ -18,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const Home = () => {
+  const navigate = useNavigate()
+    
     const styles = {
     contentDiv: {
       display: "flex",
@@ -46,17 +41,13 @@ const Home = () => {
     }
   };
   
-  const navigate = useNavigate()
   
   useEffect(() => {
     if(!localStorage.getItem('accessToken')) {
       navigate('/home')
-        console.log('home')
-        // alert('home')
     } else {
       console.log('login')
       navigate('/');
-        alert('NO ACCESS')
     }
   }, [])
 
@@ -79,6 +70,8 @@ const Home = () => {
             <br />
             <br />
             <br />
+            
+            	// response.send('Welcome back, ' + request.session.username + '!');
                              <button
                onClick={() => {
                   localStorage.removeItem('Acces Token', 'accessToken')

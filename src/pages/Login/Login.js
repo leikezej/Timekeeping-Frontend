@@ -19,6 +19,15 @@ function Login() {
   const togglePassword = () => {
     setShowPassword(!showPassword);
   };
+  
+//   // setter
+// localStorage.setItem('myData', data);
+// // getter
+// localStorage.getItem('myData');
+// // remove
+// localStorage.removeItem('myData');
+// // remove all
+// localStorage.clear();
 
    const handleLogin = () => {
       console.log({ email, password})
@@ -28,6 +37,8 @@ function Login() {
          password: password
       })
          .then(res => {
+           const accessToken  =  res.data.token;
+            localStorage.setItem("token", accessToken);
             console.log(res.status)
             alert('Login Success')
                localStorage.setItem('Access Token', res.data.accessToken)
@@ -35,18 +46,14 @@ function Login() {
                localStorage.setItem('User Email', res.data.email)
             navigate("/home", { replace: true });
                
-      if (!email || !password) {
-         return res.status(422).send({error: "You must provide login and password"})
-      }
-      
-      console.log(res.data)
-      console.log(res.status)
-         console.log(res.data.id)
-         console.log(res.data.name)
-         console.log(res.data.email)
-         console.log(res.data.role)
-         console.log(res.data.accessToken)
-         console.log(res.data.refreshToken)
+            console.log(res.data)
+            console.log(res.status)
+            console.log(res.data.id)
+            console.log(res.data.name)
+            console.log(res.data.email)
+            console.log(res.data.role)
+            console.log(res.data.accessToken)
+            console.log(res.data.refreshToken)
          
          }).catch(error => {
                console.log(error.message)

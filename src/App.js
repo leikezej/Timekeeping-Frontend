@@ -1,6 +1,6 @@
 import React from 'react';
+// import React, { useState } from 'react';
 import './styles/App.css';
-// import PrivateRoute from './utils/PrivateRoute';
 
 import {
   // Browser as Router,
@@ -30,6 +30,12 @@ import Timeout from './components/Timeout/Timeout';
 // }
 
 function App() {
+  //   const [token, setToken] = useState();
+
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
+
   return (
     <div>
         <Routes>

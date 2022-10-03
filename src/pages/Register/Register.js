@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -21,17 +21,12 @@ function Register() {
    const togglePassword = () => {
     setShowPassword(!showPassword);
    };
-   // const handleName = (e) => {
-   //    setName(e.target.value)
-   // }
    
-   // const handleEmail = (e) => {
-   //    setEmail(e.target.value)
-   // }
-   
-   // const handlePassword = (e) => {
-   //    setPassword(e.targer.value)
-   // }
+      useEffect(() => {
+         if(!localStorage.getItem('accessToken')) {
+        navigate('/register')
+    }
+  }, [])
    
    const handleRegister = () => {
       console.log({ name, email, phone, password })
@@ -46,7 +41,7 @@ function Register() {
             console.log(res.data)
             console.log(res.status)
                alert('Registration Successfull!')
-            localStorage.setItem("token", res.token);
+            localStorage.setItem("token", res.data.token);
             navigate("/", { replace: true });
          })
          .catch(error => {
@@ -67,15 +62,16 @@ function Register() {
                onChange={(e) => {
                   setName(e.target.value)
                }}
+               required
                placeholder="Johnny Pusong"
                value={name}
                className="inputs"
                type="name" /> <br /> <br />
             
             Email: <br />
-          {/* <i class="fa fa-envelope"></i> {" "} */}
              <AiOutlineMail />  {" "}
              <input
+               required
                onChange={(e) => {
                   setEmail(e.target.value)
                }}
@@ -85,72 +81,18 @@ function Register() {
                type="email" /> <br /> <br />
             
             Phone: <br />
-          {/* <i class="fa fa-mobile"></i>  */}
           <FiPhone />{" "}
              <input
+               required
                onChange={(e) => {
                   setPhone(e.target.value)
                }}
                value={phone}
                className="inputs"
-               type="numpad"
-               required
+               type="number"
                 placeholder="(xxx) xxx-xxxx"
                /> <br /> <br />
             
-            {/* Role: 
-            <div className="center">
-               <RadioGroup
-               row
-               aria-labelledby="demo-row-radio-buttons-group-label"
-               // name="row-radio-buttons-group"
-               name="position"
-               defaultValue="top"
-               >
-               
-               <FormControlLabel 
-                  onChange={(e) => {
-                        setUser(e.target.value)
-                     }}
-                  value="user" name="user" control={<Radio />} label="User" />
-               <FormControlLabel 
-                  onChange={(e) => {
-                        setAdmin(e.target.value)
-                     }}
-                  value="admin" name="admin" control={<Radio />} label="Admin" />
-               
-               <FormControlLabel
-                  value="disabled"
-                  disabled
-                  control={<Radio />}
-                  label="other"
-               />
-               </RadioGroup>
-            </div> */}
-            
-            
-            {/* <PhoneInput
-                  type="numpad"
-                  placeholder="Enter phone number"
-                  // country={'PH'}
-                  // defaultCountry={'PH'}
-                  country="PH"
-                  defaultCountry="PH"
-                  onChange={(e) => {
-                     setPhone(e.target.value)
-                  }}
-                  // onChange={(e) => setValues({ ...values, phone: e.target.value })}
-                  // variant="outlined"
-                  required
-                  width="200%"
-                  // value={value}
-                  // onChange={setValue}
-                  /><br /> <br /> */}
-            
-
-               <br /> <br /> 
-                              
-                              
             Password: <br />
              <FiKey />{" "}
                <input 
