@@ -1,28 +1,59 @@
-/* .outcard {
-   padding: 25px;
-   margin-left: 25%;
-   width: 50%;
-   box-shadow: 0 1px 2px 1px #ddd;
-   border-radius: 3px;
+/* 
+body {
+  margin: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+.outcard {
+  padding: 25px;
+  margin-left: 25%;
+  width: 80%;
+  box-shadow: 0 1px 2px 1px #ddd;
+  border-radius: 3px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+  /* font-family: Kaushan Script; */
 }
 
+
+
 .inputs{
-   width: 93%;
+  width: 90%;
    color: #444;
    border: 1px solid #ccc; 
    border-radius: 3px;
    padding: 10px 10px;
 }
 
-.btns {
-   background-color: #0050b1;
-   color: #fff;
-   width: 100%;
-   padding: 10px 10px;
-   border-radius: 3px;
-   border: none;
+.password-inputs{
+  margin-left: 1%;
+  width: 90%;
+  color: #000;
+  border: 1px solid #ccc; 
+  border-radius: 3px;
+  padding: 10px 10px;
 }
 
-.center{
-   text-align: center;
-} */
+.btns {
+    background-color: #f2f2f2;
+    color: #000;
+    border-color: 2px solid #000;
+    width: 30%;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    padding: 5px 5px;
+    font-size: 1rem;
+}
+  
+.btns:hover {
+  background-color: #000;
+  color: #fff;
+}
+  
+  .center{
+     text-align: center;
+  }

@@ -5,54 +5,65 @@ import { useNavigate } from 'react-router-dom';
 
 function ChangePassword() {
    const navigate = useNavigate();
-   const [ otp, setOtp ] = useState('');
+   
    const [ password, setPassword ] = useState('');
+   const [ passwordConfirm, setPasswordConfirm ] = useState('');
 
    const handleSubmit= () => {
-      console.log({ otp, password })
+      console.log({ password, passwordConfirm })
       axios.post('http://localhost:8080/api/auth/submit-otp', 
       {
-         otp: otp,
          password: password,
+         passwordConfirm: passwordConfirm
       })
       .then(result => {
          alert('Success')
          console.log(result.data)
       
          if (result.data.code === 200) {
-            navigate('/signin')
+            navigate('/')
          }
-         // if (result.data.code === 500) {
-         //    alert('User Not Found!')
-         // }
          })
          .catch(error => {
-            alert('Register Error')
+            alert('Changing Password Error')
             console.log(error)
          })
    }
 
-
    return(
    <>
-      <h1 className="center"> New Pssword </h1>
+      <h1 className="center" style={{
+            fontFamily: 'Kaushan Script', 
+            marginTop: '50px', 
+            marginBottom: '25px',
+            fontWeight: '900'
+      }}> Change Password </h1>
       
       <div className="outcard">
-         OTP 
-         <input className="inputs" type="text" 
-            value={otp}
+      
+         Enter New Password: <br />
+         <input className="inputs"  
+            type="password"
+            value={password}
             onChange={(e) => {
-               setOtp(e.target.value)
-            }}
-         />
-         
-         New Password 
-         <input className="inputs" type="text" 
-             value={password}
-             onChange={(e) => {
                setPassword(e.target.value)
             }}
          />
+         
+         <br />
+         <br />
+         
+         Re-Enter New Password: <br />
+         <input className="inputs"
+            type="password"
+             value={passwordConfirm}
+             onChange={(e) => {
+               setPasswordConfirm(e.target.value)
+            }}
+         />
+         
+         <br />
+         <br />
          
          <button
             onClick={handleSubmit}

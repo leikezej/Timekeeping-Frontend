@@ -1,11 +1,11 @@
-import { setDate } from "date-fns";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { AiOutlineArrowLeft } from "react-icons/ai";
+
+import '../../styles/timeout.css';
 
 function Timeout() {
-   const navigate = useNavigate('');
 
    const [ name, setName ] = useState('');
    const [ date, setDate ] = useState('');
@@ -25,12 +25,27 @@ function Timeout() {
          alert('TIMEOUT ERROR')
       })
    }
+   
+//    useEffect(() => {
+//          if(!localStorage.getItem('accessToken')) {
+//         navigate('/timeout')
+//     }
+//   }, [])
 
    return(<>
-            <h1 className="center"> Timeout </h1>
+   
+      <>
+         <a href="/home" alt="" style={{ color: '#000'}}>
+            <AiOutlineArrowLeft size="40px" 
+                  onMouseOver={({target})=>target.style.color="#000"}
+            />
+         </a>
+      </>    
+            <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '10px', marginBottom: '10px'}}> Timeout </h1>
          
             <div className="outcard">
-               Name
+               Name:
+                <br />
                   <input
                      onChange={(e) => {
                         setName(e.target.value)
@@ -38,7 +53,8 @@ function Timeout() {
                      value={name}
                      className="inputs"
                      type="text  " /> <br /> <br />
-               Date
+               Date:
+                <br />
                   <input
                      onChange={(e) => {
                         setDate(e.target.value)
@@ -47,7 +63,8 @@ function Timeout() {
                      className="inputs"
                      type="date" /> <br /> <br />
                      
-               Time
+               Time:
+                <br />
                   <input
                      onChange={(e) => {
                         setTime(e.target.value)
@@ -56,13 +73,13 @@ function Timeout() {
                      className="inputs"
                      type="time" /> <br /> <br />
                
-               <button onClick={AddTimeout}> TimeOUT </button>
+               <button onClick={AddTimeout}> OUT </button>
             </div>
-            <Link to={'/timein'} 
+            {/* <Link to={'/timein'} 
                style={{ 
                   marginTop: '5px', 
                   textAlign: 'center', 
-                  display: 'block' }}> TIMEIN HERE </Link>
+                  display: 'block' }}> TIMEIN </Link> */}
          </>
    );
 }

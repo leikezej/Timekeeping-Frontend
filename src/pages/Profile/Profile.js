@@ -1,35 +1,66 @@
-import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./profile.css";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
-class Pro extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { apiResponse: "" };
-    }
+function Profile() {
+    const navigate = useNavigate('');
 
-    callAPI() {
-        fetch("http://localhost:8080/api/test/all")
-            .then(res => res.text())
-            .then(res => this.setState({ apiResponse: res }))
-            .catch(err => err);
-    }
 
-    componentDidMount() {
-        this.callAPI();
-    }
+   const handleLogout = () => {
+       axios.post('http://localhost:272/api/auth/signout', 
+      )
+         .then(res => {
+            console.log(res.status)
+              alert('Logout Success')
+            navigate("/", { replace: true });
+         
+     
+         }).catch(error => {
+            alert('You Are Not Loggedin')
+            console.log(error)
+         })
+   }
+//               useEffect(() => {
+//     if(!localStorage.getItem('accessToken')) {
+//         navigate('/profile')
+//     }
+//   }, [])
+   
+   return(
+      <>
+         <h1 className="center"> PROFILE </h1>
+         
+         <div>
+            
+            <button
+               onClick={handleLogout}
+               // onClick={() => {
+                  // localStorage.removeItem('accessToken')
+                  // localStorage.removeItem('refreshToken')
+                  // {handleLogout}
+               // }}
+            > LOGOUT </button>
+            <br />
+                        <button
+               onClick={() => {
+                  localStorage.setItem('arr', JSON.stringify([1, 2, 3, 4]))
+                  localStorage.setItem('obj', { name: 'name1', email: 'email1', phone: 'phone1' })
+               }}> Save </button>
+            <br />
+            
+                        <button
+                        onClick={() => {
+                           const obj = localStorage.getItem('obj')
+                           console.log((obj))
+                        }}
+            > GET </button>
+   
+   <br />
+   <br />
 
-    render() {
-        return (
-            <div className="Pro">
-                <header className="Pro-header">
-                    <img src={logo} className="Pro-logo" alt="logo" />
-                    {/* <h1 className="Pro-title">Welcome to Profile</h1> */}
-                </header>
-                <p className="Pro-intro">{this.state.apiResponse}</p>
-            </div>
-        );
-    }
+         </div>
+      </>
+         
+   );
 }
 
-export default Pro;
+export default Profile;

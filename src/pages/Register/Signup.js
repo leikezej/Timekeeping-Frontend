@@ -18,7 +18,6 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
 import '../../styles/signup.css';
-// import logo from '../../logo.svg';
 
 const Signup = () => {
   
@@ -26,11 +25,7 @@ const Signup = () => {
     const [ values, setValues ] = useState({
       name: "",
       email: "",
-      // birthdate: "",
-      // gender: "",
-      // address: "",
       phone: "",
-      // role: "",
       password: "",
       showPass: false,
     });
@@ -41,9 +36,6 @@ const Signup = () => {
         .post("http://localhost:272/api/auth/signup",  {
           name: values.name,
           email: values.email,
-         //  birthdate: values.birthdate,
-         //  gender: values.gender,
-         //  address: values.address,
           phone: values.phone,
           password: values.password,
         })
@@ -57,7 +49,7 @@ const Signup = () => {
         .catch((err) => {
           console.log(err)
           console.log(err.response)
-          alert(err.response.data.error.message)
+          alert(err.response.data.err.message)
         })
   };
 

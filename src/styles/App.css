@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Aboreto&family=Caveat:wght@400;500&family=Kaushan+Script&family=MonteCarlo&family=Montserrat:ital,wght@0,200;0,300;0,500;1,100;1,300&family=Open+Sans:ital,wght@0,400;1,300&family=Oswald:wght@200;300;400;500;600&family=Poppins:ital,wght@0,300;0,400;0,500;0,800;1,100;1,200;1,300;1,400;1,700&family=Raleway:ital,wght@0,200;1,100&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=Share+Tech&family=Silkscreen&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,600;1,200;1,300;1,400&display=swap');
 /* 
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
 
@@ -22,9 +23,39 @@
 } */
 
 /* * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 } */
+
+/* html,
+ body {
+  height: 100%;
+ }
+ 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+   color: var(--clr-white);
+ }
+
+ img,
+ picture {
+   max-width: 100%;
+ }
+
+ :root {
+   --clr-white: rgba(255, 255, 255, 0.603);
+   --clr-black: rgb(0, 0, 0);
+   --clr-cream: rgb(245, 222, 179);
+   --clr-glass: 19, 97%, 83%, 0.365;
+   --clr-glass-light: 19, 77%, 83%, 0.345;
+   --clr-glass-dark: 39, 47%, 89%, 0.110;
+   --clr-glass-font: 39, 47%, 89%, 0.210;
+   --clr-glass-blank: 0, 0%, 0%, 0.062;
+ } */
 /* 
 body {
   box-sizing: border-box;
@@ -32,88 +63,11 @@ body {
   height: 100%;
   width: 100%;
   background-color: #c1c1c1;
-} */ */
+} */ 
 
-.body {
-  height: 100%;
-  width: 100%;
-  /* background-color: #c1c1c1; */
-}
 
-.outcard {
-    margin-top: 150px;
-    margin: auto;  
-    align-items: center;
-    justify-content: center;
-    /* display: flex; */
-    padding: 25px;
-    /* margin-left: 25%; */
-    width: 40%;
-    box-shadow: 0 1px 2px 1px #ddd;
-    border-radius: 3px;
-}
 
-.card {
-  box-shadow: 0 1px 2px 1px #ddd;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  background-color: #eee;
-}
-  
-.inputs{
-    width: 93%;
-    color: #444;
-    border: 1px solid #ccc; 
-    border-radius: 3px;
-    padding: 10px 10px;
-}
 
-.btns {
-    background-color: #0050b1;
-    color: #fff;
-    width: 50%;
-    padding: 10px 10px;
-    border-radius: 3px;
-    border: none;
-}
-
-button {  
-  overflow: hidden;
-  background-color: #ccc;
-  width: 30%;
-  justify-content: center;
-  border-radius: 10px;
-  color: black;  
-  font-size: 25px; 
-  cursor: pointer;
-  margin: auto;  
-  display: flex;
-  font-family: 'Poppins';
-  font-weight: 400;
-  font-size: 30px;
-  border: none;
-}  
-
-/* .button_icon {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 8px;
-  color: #000;
-  height: 100%;
-} */
-  
-  /* font-size: 1.5rem; */
-  /* background: rgba(0, 0, 0, 0.1); */
-
-.center{
-    text-align: center;
-}
-  
-  
-  
-  
-  
   /* .App {
     text-align: center;
   }
@@ -152,3 +106,32 @@ button {
       transform: rotate(360deg);
     }
   } */
+/* { */
+    /* {!["/admin", "/user", "/employee"].includes(location.pathname) && <Navbar />} */
+  /* } */
+/* .App {
+  height: 100vh;
+  background-color: #2d3436;
+  color: #f3f3f3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 35px;
+}
+
+.App svg {
+  margin: 0 5px;
+  font-size: 35px;
+  text-transform: capitalize;
+  font-weight: 600;
+  width: 35px;
+  height: 35px;
+}
+
+.App p {
+  padding-top: 5px;
+  margin: 0 5px;
+  text-transform: capitalize;
+  font-weight: 600;
+} */

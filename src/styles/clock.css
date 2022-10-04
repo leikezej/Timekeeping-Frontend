@@ -1,14 +1,14 @@
 
 .clock{
-   width: 95vw;
+   /* width: 95vw;
    height: 95vh;
-   overflow: hidden;
+   overflow: hidden; */
    text-align: center;
 }
 
 .clock h1{
    border: 2px solid burlywood;
-   width: 250px;
+   /* width: 250px; */
    margin: 40vh auto 0px auto;
    border-radius: 15px;
    padding: 10px 0;
@@ -17,11 +17,20 @@
 }
 
 h1{
-   font-family: 'Courier New', Courier, monospace;
-   color: san;
+   /* font-family: 'Courier New', Courier, monospace; */
+   /* font-family: 'Silkscreen', cursive; */
+   font-family: 'Share Tech', sans-serif;
+   font-size: 4em;
+   font-weight: bolder;
 }
 
 .time{
    display: inline;
    flex-direction: row;;
+}
+
+p{
+   font-family: 'Roboto Condensed', sans-serif;
+   /* font-family: 'Caveat', cursive; */
+   font-size: large;
 }

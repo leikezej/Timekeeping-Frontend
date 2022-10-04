@@ -1,14 +1,12 @@
+// import React, { useState, useEffect } from 'react';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 
-import '../../styles/login.css';
+import '../../styles/register.css';
 
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-import PhoneInput from 'react-phone-input-2'
-import 'react-phone-input-2/lib/style.css'
-
+import { AiOutlineMail } from "react-icons/ai";
+import { FiEye, FiEyeOff, FiKey, FiPhone, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
 
 function Register() {
    const navigate = useNavigate('');
@@ -16,129 +14,127 @@ function Register() {
    const [ name, setName ] = useState('');
    const [ email, setEmail ] = useState('');
    const [ phone, setPhone ] = useState('');
-   const [ roles, setRoles ] = useState('');
    const [ password, setPassword ] = useState('');
-  
-//   const [validate, setValidate] = useState({});
-  const [showPassword, setShowPassword] = useState(false);
+   
+   const [ showPassword, setShowPassword ] = useState(false);
+   const changeIcon = showPassword === true ? false : true;
       
-   // const handleName = (e) => {
-   //    setName(e.target.value)
-   // }
+   const togglePassword = () => {
+    setShowPassword(!showPassword);
+   };
    
-   // const handleEmail = (e) => {
-   //    setEmail(e.target.value)
-   // }
-   
-   // const handlePassword = (e) => {
-   //    setPassword(e.targer.value)
-   // }
+//       useEffect(() => {
+//          if(!localStorage.getItem('accessToken')) {
+//         navigate('/')
+//     }
+//   }, [])
    
    const handleRegister = () => {
-      console.log({ name, email, phone, roles, password })
+      console.log({ name, email, phone, password })
       axios.post('http://localhost:272/api/auth/signup', 
       {
          name: name,
          email: email,
          phone: phone,
-         roles: roles,
          password: password
       })
-         .then(result => {
-            console.log(result.data)
+         .then(res => {
+            console.log(res.data)
+            console.log(res.status)
                alert('Registration Successfull!')
-            localStorage.setItem("token", result.data.token);
-            navigate("/login", { replace: true });
-         
-            // if  (result.data.code === 500) {
-            //    alert('User Not Found!')
-            // }
+            localStorage.setItem("token", res.data.token);
+            navigate("/", { replace: true });
          })
          .catch(error => {
             console.log(error)
-            alert(error.response.data.error.message)
-            // alert('Register Error')
+            alert('Register Error')
          })
    }
    
    return (<>
-         <h1 className="center"> Register </h1>
-               <Link to={'/login'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> Login Here</Link>
+         <h1 className="center" style={{ fontFamily: 'Kaushan Script', marginTop: '50px'}}> REGISTER </h1>
+               <Link to={'/'} style={{  textAlign: 'center', color: '#000', display: 'block' }}> Login Here</Link>
          <br />
                      
          <div className="outcard">
-           Name:
+           Full Name: <br /> 
+          <FiUser /> {" "}
                <input
                onChange={(e) => {
                   setName(e.target.value)
                }}
+               required
                placeholder="Johnny Pusong"
                value={name}
-               className="inputs"
+               className="password-inputs"
                type="name" /> <br /> <br />
             
-            Email <br />
+            Email: <br />
+             <AiOutlineMail />  {" "}
              <input
+               required
                onChange={(e) => {
                   setEmail(e.target.value)
                }}
                placeholder="johndoe@gmail.com"
                value={email}
-               className="inputs"
+               className="password-inputs"
                type="email" /> <br /> <br />
             
-            Phone
+            Phone: <br />
+          <FiPhone />{" "}
              <input
+               required
                onChange={(e) => {
                   setPhone(e.target.value)
                }}
                value={phone}
-               className="inputs"
-               type="numpad"
-               required
+               className="password-inputs"
+               type="number"
                 placeholder="(xxx) xxx-xxxx"
                /> <br /> <br />
             
-            {/* <PhoneInput
-                  type="numpad"
-                  placeholder="Enter phone number"
-                  // country={'PH'}
-                  // defaultCountry={'PH'}
-                  country="PH"
-                  defaultCountry="PH"
-                  onChange={(e) => {
-                     setPhone(e.target.value)
-                  }}
-                  // onChange={(e) => setValues({ ...values, phone: e.target.value })}
-                  // variant="outlined"
-                  required
-                  width="200%"
-                  // value={value}
-                  // onChange={setValue}
-                  /><br /> <br /> */}
-            
-            Role <br />
-             <input
-               onChange={(e) => {
-                  setRoles(e.target.value)
-               }}
-               placeholder={'admin, user'}
-               value={roles}
-               className="inputs"
-               type="textr" /> <br /> <br />
-               
-            Password
+            Password: <br />
+             <FiKey />{" "}
                <input 
                   onChange={(e) => {
                      setPassword(e.target.value)
                   }}
-                  placeholder={'*******************'}
+                  placeholder={'************'}
                   value={password}
                   required
-                  className="inputs" type="password" /> <br /> <br />
-            
-               <button onClick={handleRegister} className="btns"> Complete </button>
-               
+                  type={showPassword ? "text" : "password"}
+                  className="password-inputs" /> {' '}
+               <span
+                    onClick={() => {
+                       togglePassword(changeIcon);
+                    }}
+                 >
+                    {changeIcon ? <FiEye /> : <FiEyeOff />}
+                 </span>
+                  <br /> <br />
+                    <input type="file" name="sampleFile" />
+               <button onClick={handleRegister} className="btns"> Register </button>
+            <>
+            <br />
+               <center style={{ textAlign: 'center', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>Or Register With</center> <br />
+               <center>
+                     <a href="https://www.linkedin.com/in/jezekiel-isip-1ab872215/" >
+                        {" "}<FiLinkedin size="30px" color="#000" />{" "}
+                    </a>
+                    
+                    <a href="https://github.com/leikezej">
+                        {" "}<FiGithub size="30px" color="#000" 
+                        />{" "}
+                    </a>
+                    
+                    
+                    <a href="https://www.facebook.com/thebullier">
+                       {" "} <FiFacebook  size="30px" color="#000"
+                        />{" "}
+                    </a>
+               </center>
+            </>
          </div>
       </>
    )

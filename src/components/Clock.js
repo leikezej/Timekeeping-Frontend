@@ -1,93 +1,61 @@
-import { setDate } from "date-fns";
-import { useState } from "react";
+import React from 'react';
+var FontAwesome = require('react-fontawesome');
 
-import '../../styles/clock.css';
 
-// import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
 
-const Home = () => {
-   const navigate = useNavigate('');
+export class Clock extends React.Component {
+    constructor() {
+        super();
 
-   // const [ name, setName ] = useState('');
-   // const [ date, setDate ] = useState('');
-   // const [ time, setTime ] = useState('');
+        var today = new Date(),
+             date = 
+                  today.getFullYear() + '-' + 
+                  (today.getMonth() + 1) + '-' + today.getDate();
 
-   let time = new Date().toLocaleTimeString();
-   const [ currentTime, setCurrentTime] = useState(time);
-   
-   const updateTime = () => {
-      let time = new Date().toLocaleDateString();
-      setCurrentTime(time);
-   }
-   
-   setInterval(updateTime, 1000);
+        // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        
+            const formatAMPM = (date) => {
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let ampm = hours >= 12 ? 'pm' : 'am';
+                hours = hours % 12;
+                hours = hours ? hours : 12;
+                minutes = minutes.toString().padStart(2, '0');
+                let strTime = hours + ':' + minutes + ' ' + ampm;
+                return strTime;
+            }
+                console.log(formatAMPM(new Date(2022, 1, 1)));
 
-   // const AddTimein = () => {
-   //    axios.post('http://localhost:272/api/user/timein', {
-   //       name: name,
-   //       time: time,
-   //       date: date
-   //    })
-   //    .then(result => {
-   //       console.log(result.data)
-   //       alert('TIMEIN')
-   //    }).catch(error => {
-   //       console.log(error)
-   //       alert('TIMEIN ERROR')
-   //    })
-   // }
+        var dateTime = date+' '+time;
+        
+        
+        this.state = {
+            date: date,
+            time: time,
+            dateTime: dateTime
+        };
+    }
 
-   return(
-         // <>
-         //    <h1 className="center"> Timein </h1>
-         
-         //    <div className="outcard">
-         //       Name
-         //          <input
-         //             onChange={(e) => {
-         //                setName(e.target.value)
-         //             }}
-         //             value={name}
-         //             className="inputs"
-         //             type="text  " /> <br /> <br />
-         //       Date
-         //          <input
-         //             onChange={(e) => {
-         //                setDate(e.target.value)
-         //             }}
-         //             value={date}
-         //             className="inputs"
-         //             type="date" /> <br /> <br />
-                     
-         //       Time
-         //          <input
-         //             onChange={(e) => {
-         //                setTime(e.target.value)
-         //             }}
-         //             value={time}
-         //             className="inputs"
-         //             type="time" /> <br /> <br />
-               
-         //       <button onClick={AddTimein}> IN </button>
-         //    </div>
-         //    <Link to={'/timeout'} style={{ marginTop: '5px', textAlign: 'center', display: 'block' }}> TIMEOUT</Link>
-         // </>
-         
-      <div className="clock">
-         <h1>{currentTime}</h1>
-         {/* <>
-            Date
-               <input type='date' />
-         </>
-         <>
-            Time
-               <input type='time' />
-         </>
-         
-            <button> Timein </button> */}
-      </div>
-   );
+    render() {
+        return (
+            <div className='date'>
+                <FontAwesome name='calendar' /> {" "}
+                {this.state.date}
+                {" "}
+                {" "}
+                <FontAwesome name='clock' /> {" "}
+                {this.state.time}
+            </div>
+        );
+    }
 }
 
-export default Home;
+export default Clock;
+
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+var dateTime = date+' '+time;
+ 
+console.log(dateTime)
