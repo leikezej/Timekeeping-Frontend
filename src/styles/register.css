@@ -21,14 +21,14 @@ body {
 
 
 .inputs{
-   width: 50%;
+  width: 90%;
    color: #444;
    border: 1px solid #ccc; 
    border-radius: 3px;
    padding: 10px 10px;
 }
 
-.pas-inputs{
+.password-inputs{
   margin-left: 1%;
   width: 90%;
   color: #000;

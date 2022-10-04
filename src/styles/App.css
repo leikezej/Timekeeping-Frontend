@@ -28,10 +28,34 @@
   padding: 0;
 } */
 
-html,
+/* html,
  body {
   height: 100%;
  }
+ 
+ * {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+   color: var(--clr-white);
+ }
+
+ img,
+ picture {
+   max-width: 100%;
+ }
+
+ :root {
+   --clr-white: rgba(255, 255, 255, 0.603);
+   --clr-black: rgb(0, 0, 0);
+   --clr-cream: rgb(245, 222, 179);
+   --clr-glass: 19, 97%, 83%, 0.365;
+   --clr-glass-light: 19, 77%, 83%, 0.345;
+   --clr-glass-dark: 39, 47%, 89%, 0.110;
+   --clr-glass-font: 39, 47%, 89%, 0.210;
+   --clr-glass-blank: 0, 0%, 0%, 0.062;
+ } */
 /* 
 body {
   box-sizing: border-box;

@@ -57,7 +57,7 @@ function Register() {
          <br />
                      
          <div className="outcard">
-           Name: <br /> 
+           Full Name: <br /> 
           <FiUser /> {" "}
                <input
                onChange={(e) => {
@@ -66,7 +66,7 @@ function Register() {
                required
                placeholder="Johnny Pusong"
                value={name}
-               className="inputs"
+               className="password-inputs"
                type="name" /> <br /> <br />
             
             Email: <br />
@@ -78,7 +78,7 @@ function Register() {
                }}
                placeholder="johndoe@gmail.com"
                value={email}
-               className="inputs"
+               className="password-inputs"
                type="email" /> <br /> <br />
             
             Phone: <br />
@@ -89,7 +89,7 @@ function Register() {
                   setPhone(e.target.value)
                }}
                value={phone}
-               className="inputs"
+               className="password-inputs"
                type="number"
                 placeholder="(xxx) xxx-xxxx"
                /> <br /> <br />
@@ -104,7 +104,7 @@ function Register() {
                   value={password}
                   required
                   type={showPassword ? "text" : "password"}
-                  className="inputs" /> {' '}
+                  className="password-inputs" /> {' '}
                <span
                     onClick={() => {
                        togglePassword(changeIcon);

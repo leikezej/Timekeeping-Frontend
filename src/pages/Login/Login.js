@@ -56,32 +56,35 @@ function Login() {
          })
    }
 
-
-   return (<>
+   return (
+   <>
          <h1 className="center" style={{ 
                fontFamily: 'Kaushan Script', 
                marginTop: '50px', 
                marginBottom: '25px',
                fontWeight: '900'
             }}> LOGIN </h1>
-               <Link to={'/register'} style={{ marginBottom: '30px', color: '#000', textAlign: 'center', display: 'block' }}> Register Here</Link>
+            
+      <Link to={'/register'} style={{ marginBottom: '30px', color: '#000', textAlign: 'center', display: 'block' }}> Register Here</Link>
                      
          <div className="outcard">         
             Email:
             <br />
           <FiUser /> {" "}
              <input
-               required
                onChange={(e) => {
                   setEmail(e.target.value)
                }}
                placeholder="john123@gmail.com"
                value={email}
                className="pas-inputs"
-               type="email" /> <br /> <br />
+               type="email"
+               // onBlur={handleBlur}
+               //  className={errors.email && touched.email && "error"}
+               required/> <br /> <br />
             
             Password:  <br />
-            {" "} <FiKey />{" "}
+            <FiKey /> {" "}
                <input
                   type={showPassword ? "text" : "password"}
                   required
@@ -130,7 +133,7 @@ function Login() {
                </center>
                   <br />
          </div>
-      </>
+   </>
    )
 }
 

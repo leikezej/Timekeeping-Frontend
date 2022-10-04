@@ -91,40 +91,11 @@ nav {
 	transform: translate(-2px, 5px) rotate(-44deg);
 }
 
-.nav-dropdown {
-	display: flex;
-	flex-direction: column;
-	flex-wrap: wrap;
-
-	width: 100vw;
-	height: 100%;
-	padding: 10px 0;
-	background-color: var(--primary);
-}
-.nav-dropdown a {
-	padding: 8px 16px;
-	margin: 0 16px;
-
-	text-decoration: none;
-	color: var(--dark);
-	text-transform: uppercase;
-	font-weight: 500;
-	border-radius: 90px;
-}
-.nav-dropdown a:hover {
-	color: var(--primary);
-	background-color: var(--dark);
-}
-
 @media (min-width: 768px) {
 	.hamburger {
 		display: none;
 	}
 	.menu {
 		display: block;
-	}
-
-	.nav-dropdown {
-		display: none;
 	}
 }

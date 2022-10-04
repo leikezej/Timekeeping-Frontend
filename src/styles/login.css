@@ -6,6 +6,37 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 } */
+/* input:invalid {
+  border: 2px dashed red;
+} */
+
+/* input:invalid:required {
+  background-image: linear-gradient(to right, pink, lightgreen);
+} */
+
+/* input:valid {
+  border: 2px solid black;
+} */
+
+input[type="email"],
+input[type="password"],
+fieldset {
+  /* border: 1px solid #333; */
+  /* -moz-box-shadow: none; */
+  box-sizing: border-box;
+}
+
+input:required:invalid {
+  box-shadow: 0 0 2px 1px red;
+}
+
+input:focus:invalid {
+  box-shadow: none;
+}
+
+input:required:valid {
+  box-shadow: 0 0 2px 1px green;
+}
 
 .outcard {
   padding: 25px;

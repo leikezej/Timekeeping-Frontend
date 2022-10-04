@@ -44,7 +44,7 @@ const Home = () => {
    return(
       <>
          <div styles={styles.contentDiv}>
-              <Navbar />
+              {/* <Navbar /> */}
             <br />
             <br />
             

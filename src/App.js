@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 // import React, { useState } from 'react';
 import './styles/App.css';
-
+import { AnimatePresence } from "framer-motion";
 import {
   Routes,
-  Route
+  Route,
+  useLocation 
 } from "react-router-dom";
 
 import Home from './pages/Home/Home';
@@ -31,6 +32,17 @@ import Navbar from './components/Navbar/Navbar';
 // }
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  
+    useEffect(() => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+
+  // const location = useLocation();
+  
   //   const [token, setToken] = useState();
 
   // if(!token) {
@@ -39,6 +51,12 @@ function App() {
 
   return (
     <>
+        {/* {loading ? (
+        <div className="loader-container">
+      	  <div className="spinner"></div>
+        </div>
+      ) : ( */}
+              {/* <AnimatePresence exitBeforeEnter> */}
       {/* {!["/admin", "/user", "/employee"].includes(location.pathname) && <Navbar/>} */}
               {/* {<Navbar />} */}
         <Routes>
@@ -46,6 +64,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />
               <Route path="/profile" element={<Profile />} />
+              {/* <Route path="/profile:/id" element={<Profile />} /> */}
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/timeSheet" element={<TimeSheet />} />
               <Route path="/reports" element={<Reports />} />
@@ -59,6 +78,8 @@ function App() {
               
               <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
           </Routes>
+          {/* </AnimatePresence> */}
+            {/* )} */}
     </>
  );
 }

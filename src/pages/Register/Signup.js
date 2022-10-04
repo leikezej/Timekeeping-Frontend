@@ -18,7 +18,6 @@ import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 
 import '../../styles/signup.css';
-// import logo from '../../logo.svg';
 
 const Signup = () => {
   
@@ -50,7 +49,7 @@ const Signup = () => {
         .catch((err) => {
           console.log(err)
           console.log(err.response)
-          alert(err.response.data.error.message)
+          alert(err.response.data.err.message)
         })
   };
 
