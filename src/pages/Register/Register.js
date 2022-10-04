@@ -113,7 +113,7 @@ function Register() {
                     {changeIcon ? <FiEye /> : <FiEyeOff />}
                  </span>
                   <br /> <br />
-            
+                    <input type="file" name="sampleFile" />
                <button onClick={handleRegister} className="btns"> Register </button>
             <>
             <br />

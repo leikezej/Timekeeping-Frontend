@@ -106,10 +106,10 @@ body {
       transform: rotate(360deg);
     }
   } */
-{
+/* { */
     /* {!["/admin", "/user", "/employee"].includes(location.pathname) && <Navbar />} */
-  }
-.App {
+  /* } */
+/* .App {
   height: 100vh;
   background-color: #2d3436;
   color: #f3f3f3;
@@ -134,4 +134,4 @@ body {
   margin: 0 5px;
   text-transform: capitalize;
   font-weight: 600;
-}
+} */
