@@ -42,7 +42,7 @@ function Register() {
             console.log(res.data)
             console.log(res.status)
                alert('Registration Successfull!')
-            localStorage.setItem("token", res.data.token);
+            // localStorage.setItem("token", res.data.token);
             navigate("/", { replace: true });
          })
          .catch(error => {

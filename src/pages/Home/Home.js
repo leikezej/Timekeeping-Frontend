@@ -1,6 +1,7 @@
 
 import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
+import Table2 from "../../components/Tables/Table2";
 import TimeSheet from "../Dashboard/TimeSheet";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -42,6 +43,8 @@ const Home = () => {
   
    return(
       <>
+localStorage.setItem('myData', data);
+      
          <div styles={styles.contentDiv}>
               <Navbar />
             <br />
@@ -55,13 +58,14 @@ const Home = () => {
                   <Timein />
                   <Timeout />
                 </div>
-            
             <br />
             <br />
             
               <div style={styles.table1}>
                 {/* <h5>EMPLOYEES LIST</h5> */}
                   <TimeSheet />
+                  <br />
+                  <Table2 />
               </div>
               
             </div>

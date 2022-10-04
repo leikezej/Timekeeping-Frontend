@@ -55,12 +55,21 @@ function Login() {
         console.log(result.data.status)
       //   alert('SUCCESS')
         navigate("/home");
+         const token = localStorage.getItem('token');
+         const headers = { Authorization: `Bearer ${token}`};
       })
       .catch(error => {
         alert('ERROR')
         console.log(error)
       })
    }
+   
+//   const storeTokenData = async (token, refreshToken, expirationDate) => {
+//     sessionStorage.setItem("accessToken", accessToken);
+//     sessionStorage.setItem("token", token);
+//     sessionStorage.setItem("refreshToken", refreshToken);
+//     sessionStorage.setItem("expirationDate", expirationDate);
+//   };
 
    return (
    <>
