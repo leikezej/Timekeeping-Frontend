@@ -5,7 +5,6 @@ import TimeSheet from "../Dashboard/TimeSheet";
 
 import Navbar from "../../components/Navbar/Navbar";
 
-import { Col, Row } from "reactstrap";
 
 import Clock from "../../components/Clock";
 

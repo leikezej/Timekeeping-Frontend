@@ -1,12 +1,9 @@
-import React, {useEffect, useState} from 'react';
-// import React, { useState } from 'react';
+// import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './styles/App.css';
-import { AnimatePresence } from "framer-motion";
 import {
   Routes,
-  Route,
-  useLocation 
-} from "react-router-dom";
+  Route} from "react-router-dom";
 
 import Home from './pages/Home/Home';
 import Profile from './pages/Profile/Profile';
@@ -24,7 +21,7 @@ import ChangePassword from './pages/Forgot/ChangePassword';
 import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
 
-import Navbar from './components/Navbar/Navbar';
+// import Navbar from './components/Navbar/Navbar';
 
 // const ROLES = {
 //   'User': 2001,
@@ -32,14 +29,14 @@ import Navbar from './components/Navbar/Navbar';
 // }
 
 function App() {
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   
-    useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
+  //   useEffect(() => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 2000);
+  // }, []);
 
   // const location = useLocation();
   
@@ -56,7 +53,6 @@ function App() {
       	  <div className="spinner"></div>
         </div>
       ) : ( */}
-              {/* <AnimatePresence exitBeforeEnter> */}
       {/* {!["/admin", "/user", "/employee"].includes(location.pathname) && <Navbar/>} */}
               {/* {<Navbar />} */}
         <Routes>
@@ -78,7 +74,6 @@ function App() {
               
               <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
           </Routes>
-          {/* </AnimatePresence> */}
             {/* )} */}
     </>
  );

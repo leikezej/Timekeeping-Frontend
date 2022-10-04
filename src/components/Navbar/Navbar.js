@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./navbar.css";
+import "../../styles/navbar.css";
 import { AiOutlineHome, AiOutlineFieldTime,  AiOutlineClockCircle, AiOutlineLineChart, AiOutlineUser } from "react-icons/ai";
 
 const NavBar = () => {
