@@ -37,10 +37,23 @@ function Login() {
          password: password
       })
       .then(result =>  {
-      //   console.log({ token, accessToken, refreshToken})
+            alert('SUCCESS')
+            console.log(result.data)
+            console.log(result.status)
+            console.log(result.data.id)
+            console.log(result.data.name)
+            console.log(result.data.email)
+            console.log(result.data.roles)
+            console.log(result.data.accessToken)
+            console.log(result.data.refreshToken)
+               localStorage.setItem('refreshToken', result.data.refreshToken);
+               localStorage.setItem('accessToken', result.data.accessToken);
+               localStorage.setItem('NAME', result.data.name);
+               localStorage.setItem('EMAIL', result.data.email);
+      //   console.log({ 'result.token', 'result.accessToken', 'result.refreshToken'})
         console.log(result.status)
         console.log(result.data.status)
-        alert('SUCCESS')
+      //   alert('SUCCESS')
         navigate("/home");
       })
       .catch(error => {
