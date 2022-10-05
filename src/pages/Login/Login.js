@@ -46,6 +46,7 @@ function Login() {
             console.log(result.data.roles)
             console.log(result.data.accessToken)
             console.log(result.data.refreshToken)
+            
                localStorage.setItem('refreshToken', result.data.refreshToken);
                localStorage.setItem('accessToken', result.data.accessToken);
                localStorage.setItem('NAME', result.data.name);
@@ -54,9 +55,11 @@ function Login() {
         console.log(result.status)
         console.log(result.data.status)
       //   alert('SUCCESS')
-        navigate("/home");
-         const token = localStorage.getItem('token');
-         const headers = { Authorization: `Bearer ${token}`};
+          if(!localStorage.setItem('refreshToken', result.data.refreshToken)) {
+                  alert('yes')
+                  navigate('/home')
+    }
+      //   navigate("/home");
       })
       .catch(error => {
         alert('ERROR')

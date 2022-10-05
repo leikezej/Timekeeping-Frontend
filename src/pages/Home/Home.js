@@ -40,11 +40,10 @@ const Home = () => {
       marginBottom: 40
     }
   };
+
   
    return(
       <>
-localStorage.setItem('myData', data);
-      
          <div styles={styles.contentDiv}>
               <Navbar />
             <br />
