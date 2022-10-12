@@ -8,7 +8,7 @@ import { FiEye, FiEyeOff, FiKey, FiUser } from "react-icons/fi";
 import { BsLock } from "react-icons/bs";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-icons/fa";
 
-function Login() {
+function Login({setToken}) {
    const navigate = useNavigate('');
 
    const [ email, setEmail ] = useState('');
@@ -20,15 +20,6 @@ function Login() {
     setShowPassword(!showPassword);
   };
   
-//   // setter
-// localStorage.setItem('myData', data);
-// // getter
-// localStorage.getItem('myData');
-// // remove
-// localStorage.removeItem('myData');
-// // remove all
-// localStorage.clear();
-
    const handleLogin = () => {
       console.log({ email, password})
        axios.post('http://localhost:272/api/auth/signin', 
@@ -37,29 +28,17 @@ function Login() {
          password: password
       })
       .then(result =>  {
-            alert('SUCCESS')
-            console.log(result.data)
-            console.log(result.status)
-            console.log(result.data.id)
-            console.log(result.data.name)
-            console.log(result.data.email)
-            console.log(result.data.roles)
-            console.log(result.data.accessToken)
-            console.log(result.data.refreshToken)
-            
-               localStorage.setItem('refreshToken', result.data.refreshToken);
-               localStorage.setItem('accessToken', result.data.accessToken);
-               localStorage.setItem('NAME', result.data.name);
-               localStorage.setItem('EMAIL', result.data.email);
-      //   console.log({ 'result.token', 'result.accessToken', 'result.refreshToken'})
-        console.log(result.status)
-        console.log(result.data.status)
-      //   alert('SUCCESS')
-          if(!localStorage.setItem('refreshToken', result.data.refreshToken)) {
-                  alert('yes')
-                  navigate('/home')
+         alert('SUCCESS')
+          const token =  (email, password);
+          if (token) {
+             localStorage.setItem('token', result.data.refreshToken);
+            }
+            console.log(result.data.refreshToken);
+                
+      if(!localStorage.setItem('token', result.data.refreshToken)) {
+         console.log('success');
+         navigate('/home')
     }
-      //   navigate("/home");
       })
       .catch(error => {
         alert('ERROR')
@@ -67,13 +46,6 @@ function Login() {
       })
    }
    
-//   const storeTokenData = async (token, refreshToken, expirationDate) => {
-//     sessionStorage.setItem("accessToken", accessToken);
-//     sessionStorage.setItem("token", token);
-//     sessionStorage.setItem("refreshToken", refreshToken);
-//     sessionStorage.setItem("expirationDate", expirationDate);
-//   };
-
    return (
    <>
          <h1 className="center" style={{ 
