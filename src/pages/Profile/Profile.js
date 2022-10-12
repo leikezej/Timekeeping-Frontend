@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 function Profile() {
     const navigate = useNavigate('');
 
-
    const handleLogout = () => {
        axios.post('http://localhost:272/api/auth/signout', 
       )
          .then(res => {
             console.log(res.status)
+            localStorage.clear();
               alert('Logout Success')
             navigate("/", { replace: true });
          
@@ -28,9 +28,8 @@ function Profile() {
    
    return(
       <>
-         <h1 className="center"> PROFILE </h1>
-         
          <div>
+         <h1 className="center"> PROFILE </h1>
             
             <button
                onClick={handleLogout}

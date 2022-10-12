@@ -2,11 +2,11 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 
-function Table() {
+function Reports() {
     const [data, setData] = useState([])
     
     useEffect(() => {
-      axios.get('http://localhost:272/api/auth/users')
+      axios.get('http://localhost:272/api/user/timesheets')
           .then(res => {
             console.log(res.data)
             setData(res?.data?.data)
@@ -21,10 +21,10 @@ function Table() {
         TABLE USERS: 
         <table>
           <tr>
-            <th> ID </th>
-            <th> EMAIL </th>
-            <th> NAME </th>
-            <th> PHONE </th>
+            <th> Name </th>
+            <th> Start Time </th>
+            <th> End Time </th>
+            <th> Total Time </th>
           </tr>
           
           {
@@ -46,4 +46,4 @@ function Table() {
   )
 }
 
-export default Table;
+export default Reports;

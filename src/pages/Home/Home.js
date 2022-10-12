@@ -2,6 +2,7 @@
 import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
 import Table2 from "../../components/Tables/Table2";
+// import TimeSheetList from "../../components/Tables/TimeSheetList";
 import TimeSheet from "../Dashboard/TimeSheet";
 
 import Navbar from "../../components/Navbar/Navbar";
@@ -52,7 +53,6 @@ const Home = () => {
             <center><Clock /></center>
             
             <div styles={styles.contentMargin}>
-               
                <div style={styles.table}>
                   <Timein />
                   <Timeout />
@@ -63,6 +63,7 @@ const Home = () => {
               <div style={styles.table1}>
                 {/* <h5>EMPLOYEES LIST</h5> */}
                   <TimeSheet />
+                  {/* <TimeSheetList /> */}
                   <br />
                   <Table2 />
               </div>

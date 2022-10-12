@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import HomeComponent from "./modules/home";
+import HomeComponent  from "./home";
 
 const Container = styled.div`
   background-color: white;
@@ -25,7 +25,7 @@ const Header = styled.div`
   font-size: 25px;
   font-weight: bold;
 `;
-const App = () => {
+const Dashboard = () => {
   return (
     <Container>
       <Header>Expense Tracker</Header>
@@ -34,4 +34,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Dashboard;

@@ -1,105 +1,93 @@
-// import "../../styles/reports.css";
-// import axios from "axios";
-// import { useEffect, useState } from "react";
-// import { withStyles, makeStyles } from "@material-ui/core/styles";
-// import Table from "@material-ui/core/Table";
-// import TableBody from "@material-ui/core/TableBody";
-// import TableCell from "@material-ui/core/TableCell";
-// import TableContainer from "@material-ui/core/TableContainer";
-// import TableHead from "@material-ui/core/TableHead";
-// import TableRow from "@material-ui/core/TableRow";
-// import Paper from "@material-ui/core/Paper";
+import React, { useEffect, useState } from "react"
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
 
-// const StyledTableCell = withStyles((theme) => ({
-//   head: {
-//     backgroundColor: theme.palette.common.black,
-//     color: theme.palette.common.white,
-//   },
-//   body: {
-//     fontSize: 14,
-//   },
-// }))(TableCell);
 
-// const StyledTableRow = withStyles((theme) => ({
-//   root: {
-//     "&:nth-of-type(odd)": {
-//       backgroundColor: theme.palette.action.hover,
-//     },
-//   },
-// }))(TableRow);
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  //th
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+    fontWeight: 600,
+    fontSize: 17,
+    textAlign: 'center'
+  },
 
-// const useStyles = makeStyles({
-//   table: {
-//     minWidth: 700,
-//   },
-// });
+  [`&.${tableCellClasses.body}`]: {
+    // backgroundColor: theme.palette.common.white,
+    backgroundColor: "#2222",
+    color: theme.palette.common.black,
+    fontWeight: 550,
+    fontFamily: 'Roboto Condensed',
+    fontSize: 14,
+    width: 20,
+    textAlign: 'center'
+  },
+}));
 
-// const Reports = () => {
-//   const classes = useStyles();
-//   const [product, setProduct] = useState([]);
-//   const [search, setSearch] = useState("");
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    // backgroundColor: theme.palette.action.hover,
+    backgroundColor: '#ccc',
+  },
+  // hide last border
+  // '&:last-child td, &:last-child th': {
+    // border: 0,
+  // },
+}));
 
-//   const getProductData = async () => {
-//     try {
-//       const data = await axios.get(
-//         "http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline"
-//       );
-//       console.log(data.data);
-//       setProduct(data.data);
-//     } catch (e) {
-//       console.log(e);
-//     }
-//   };
+const AsyncAwait = () => {
+  const [ timeSheet, setTimeSheets ] = useState([])
 
-//   useEffect(() => {
-//     getProductData();
-//   }, []);
-//   return (
-//     <div className="App">
-//       <h1>Lets code tamil</h1>
-//       <input
-//         type="text"
-//         placeholder="Search here"
-//         onChange={(e) => {
-//           setSearch(e.target.value);
-//         }}
-//       />
-//       <TableContainer component={Paper}>
-//         <Table className={classes.table} aria-label="customized table">
-//           <TableHead>
-//             <TableRow>
-//               <StyledTableCell>Product Name</StyledTableCell>
-//               <StyledTableCell align="right">Product Price</StyledTableCell>
-//             </TableRow>
-//           </TableHead>
-//           <TableBody>
-//             {product
-//               .filter((item) => {
-//                 if (search == "") {
-//                   return item;
-//                 } else if (
-//                   item.name.toLowerCase().includes(search.toLowerCase())
-//                 ) {
-//                   return item;
-//                 }
-//               })
-//               .map((item) => {
-//                 return (
-//                   <StyledTableRow key={item.id}>
-//                     <StyledTableCell component="th" scope="row">
-//                       {item.name}
-//                     </StyledTableCell>
-//                     <StyledTableCell align="right">
-//                       {item.price}
-//                     </StyledTableCell>
-//                   </StyledTableRow>
-//                 );
-//               })}
-//           </TableBody>
-//         </Table>
-//       </TableContainer>
-//     </div>
-//   );
-// };
+  const fetchData = async () => {
+    const response = await fetch("http://localhost:272/api/user/timesheets")
+    const data = await response.json()
+    setTimeSheets(data)
+  }
 
-// export default Reports;
+  useEffect(() => {
+    fetchData()
+  }, [])
+
+  
+  return ( 
+   <>
+         <h2 className="center">TIMESHEET</h2>
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Name</StyledTableCell>
+            <StyledTableCell align="left">Start_Time</StyledTableCell>
+            <StyledTableCell align="left">End_Time</StyledTableCell>
+            <StyledTableCell align="left">Total_Time</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {timeSheet.map((timeSheet) => (
+            <StyledTableRow 
+              key={timeSheet.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <StyledTableCell component="th" scope="row">
+                {timeSheet.name}
+              </StyledTableCell>
+              <StyledTableCell align="left">{timeSheet.start_time}</StyledTableCell>
+              <StyledTableCell align="left">{timeSheet.end_time}</StyledTableCell>
+              <StyledTableCell align="left">{timeSheet.total_time}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+   </>
+  );
+}
+
+export default AsyncAwait
