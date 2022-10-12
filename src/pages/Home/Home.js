@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 import Timein from "../../components/Tables/TimeinList";
 import Timeout from "../../components/Tables/TimeoutList";
@@ -11,6 +13,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import Clock from "../../components/Clock";
 
 const Home = () => {
+   const navigate = useNavigate()
+
     const styles = {
     contentDiv: {
       flex: 1,
@@ -41,6 +45,13 @@ const Home = () => {
       marginBottom: 40
     }
   };
+  
+     useEffect(() => {
+      const token = localStorage.getItem('token')
+       if(!token){
+         navigate('/home')
+       }
+   }, [])
 
   
    return(
