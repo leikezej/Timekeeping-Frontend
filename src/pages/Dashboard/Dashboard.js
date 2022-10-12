@@ -1,36 +1,19 @@
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+
+import Sidebar from "../../components/Sidebar";
 
 function Dashboard() {
-    const navigate = useNavigate('');
-
-
-   const handleLogout = () => {
-       axios.post('http://localhost:272/api/auth/signout', 
-      )
-         .then(res => {
-            console.log(res.status)
-              alert('Logout Success')
-            navigate("/", { replace: true });
-         
-     
-         }).catch(error => {
-            alert('You Are Not Loggedin')
-            console.log(error)
-         })
-   }
-   
    return(
-      <>
-         <h1 className="center"> Dashboard </h1>
-         
-         <div>
-            
-            <button
-               onClick={handleLogout}
-            > LOGOUT </button>
-         </div>
-      </>
+      <div>
+            <Sidebar />
+         <>
+            <h1 className="center"> Dashboard </h1>
+            <div>
+               
+               <button
+               > LOGOUT </button>
+            </div>
+         </>   
+      </div>
          
    );
 }

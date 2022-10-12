@@ -67,7 +67,6 @@ const AsyncAwait = () => {
       <Table sx={{ minWidth: 620 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
-            <StyledTableCell align="center"><RiFolderUserLine style={{ marginBottom: '4px'}} />{" "}ID</StyledTableCell>
             <StyledTableCell align="center"><RiUser2Line style={{ marginBottom: '4px'}} />{" "}Name</StyledTableCell>
             <StyledTableCell align="center"><BsClockHistory style={{ marginBottom: '4px'}} />{" "}Time</StyledTableCell>
             <StyledTableCell align="center"><BsCalendarCheck style={{ marginBottom: '4px'}} />{" "}Date</StyledTableCell>
@@ -82,9 +81,6 @@ const AsyncAwait = () => {
               // sx={{ '&:first-child td, &:first-child th': { backgroundColor: '#123' } }} // second top
               // sx={{ '&:last-child th, &:last-child tr': { backgroundColor: '#123' } }}
             >
-              <StyledTableCell component="th" scope="row">
-                {timein.id}
-              </StyledTableCell>
               <StyledTableCell align="center">{timein.name}</StyledTableCell>
               <StyledTableCell align="center">{timein.time}</StyledTableCell>
               <StyledTableCell align="center">{timein.date}</StyledTableCell>

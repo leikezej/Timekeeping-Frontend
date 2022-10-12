@@ -8,7 +8,7 @@ import { FiEye, FiEyeOff, FiKey, FiUser } from "react-icons/fi";
 import { BsLock } from "react-icons/bs";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-icons/fa";
 
-function Login() {
+function Login({setToken}) {
    const navigate = useNavigate('');
 
    const [ email, setEmail ] = useState('');
@@ -20,15 +20,6 @@ function Login() {
     setShowPassword(!showPassword);
   };
   
-//   // setter
-// localStorage.setItem('myData', data);
-// // getter
-// localStorage.getItem('myData');
-// // remove
-// localStorage.removeItem('myData');
-// // remove all
-// localStorage.clear();
-
    const handleLogin = () => {
       console.log({ email, password})
        axios.post('http://localhost:272/api/auth/signin', 
@@ -37,18 +28,24 @@ function Login() {
          password: password
       })
       .then(result =>  {
-      //   console.log({ token, accessToken, refreshToken})
-        console.log(result.status)
-        console.log(result.data.status)
-        alert('SUCCESS')
-        navigate("/home");
+         alert('SUCCESS')
+          const token =  (email, password);
+          if (token) {
+             localStorage.setItem('token', result.data.refreshToken);
+            }
+            console.log(result.data.refreshToken);
+                
+      if(!localStorage.setItem('token', result.data.refreshToken)) {
+         console.log('success');
+         navigate('/home')
+    }
       })
       .catch(error => {
         alert('ERROR')
         console.log(error)
       })
    }
-
+   
    return (
    <>
          <h1 className="center" style={{ 

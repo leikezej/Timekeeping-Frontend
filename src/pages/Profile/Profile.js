@@ -1,15 +1,16 @@
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Profile() {
     const navigate = useNavigate('');
 
-
    const handleLogout = () => {
        axios.post('http://localhost:272/api/auth/signout', 
       )
          .then(res => {
             console.log(res.status)
+            localStorage.clear();
               alert('Logout Success')
             navigate("/", { replace: true });
          
@@ -19,17 +20,16 @@ function Profile() {
             console.log(error)
          })
    }
-//               useEffect(() => {
-//     if(!localStorage.getItem('accessToken')) {
-//         navigate('/profile')
-//     }
-//   }, [])
+              useEffect(() => {
+    if(!localStorage.getItem('accessToken')) {
+      //   navigate('/profile')
+    }
+  }, [])
    
    return(
       <>
-         <h1 className="center"> PROFILE </h1>
-         
          <div>
+         <h1 className="center"> PROFILE </h1>
             
             <button
                onClick={handleLogout}
