@@ -10,9 +10,33 @@ import { FiEye, FiEyeOff, FiKey, FiPhone, FiUser, FiFacebook, FiGithub, FiLinked
 
 function Register() {
    const navigate = useNavigate('');
+   //  const [fileData, setFileData] = useState();
 
+   //  const fileChangeHandler = (e) => {
+   //    setFileData(e.target.files[0]);
+   //  };
+    
+   //  const onSubmitHandler = (e) => {
+   //    e.preventDefault();
+      
+   //    const data = new FormData();
+      
+   //    data.append('image', fileData)
+   //    fetch("http://localhost:5000/api/user/single-upload", {
+   //      method: "POST",
+   //      body: data,
+   //    })
+   //    .then((result) => {
+   //      console.log("File Sent Success!");
+   //    })
+   //    .catch((err) => {
+   //    console.log(err.message);
+   //    });
+   //  };
+    
    const [ name, setName ] = useState('');
    const [ email, setEmail ] = useState('');
+   const [ image, setImage ] = useState('');
    const [ phone, setPhone ] = useState('');
    const [ password, setPassword ] = useState('');
    
@@ -35,13 +59,14 @@ function Register() {
       {
          name: name,
          email: email,
+         image: image,
          phone: phone,
          password: password
       })
          .then(res => {
-         if (!name || !email || !phone || !password) {
-                return res.sendStatus(400);
-             }
+         // if (!name || !email || !phone || !image ||  !password) {
+         //        return res.sendStatus(400);
+         //     }
             console.log(res.data)
             console.log(res.status)
                alert('Registration Successfull!')
@@ -95,6 +120,19 @@ function Register() {
                type="number"
                 placeholder="(xxx) xxx-xxxx"
                /> <br /> <br />
+               
+                           Avatar: <br />
+          <FiPhone />{" "}
+             <input
+               required={true}
+               onChange={(e) => {
+                  setImage(e.target.value)
+               }}
+               value={image}
+               className="password-inputs"
+               type="file"
+               /> <br /> <br />
+               
             
             Password: <br />
              <FiKey />{" "}
@@ -115,7 +153,6 @@ function Register() {
                     {changeIcon ? <FiEye /> : <FiEyeOff />}
                  </span>
                   <br /> <br />
-                    <input type="file" name="sampleFile" />
                <button onClick={handleRegister} className="btns"> Register </button>
             <>
             <br />
@@ -129,7 +166,6 @@ function Register() {
                         {" "}<FiGithub size="30px" color="#000" 
                         />{" "}
                     </a>
-                    
                     
                     <a href="https://www.facebook.com/thebullier">
                        {" "} <FiFacebook  size="30px" color="#000"

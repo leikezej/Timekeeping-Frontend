@@ -16,6 +16,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     color: theme.palette.common.white,
     fontWeight: 800,
     fontSize: 18,
+    textAlign: 'center'
   },
 
   [`&.${tableCellClasses.body}`]: {
@@ -24,6 +25,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontWeight: 600,
     fontSize: 14,
     width: 25,
+    textAlign: 'center'
   },
 }));
 
@@ -56,6 +58,7 @@ const AsyncAwait = () => {
       <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
         <TableHead>
           <TableRow>
+            <StyledTableCell align="left">Avatar</StyledTableCell>
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell align="left">Emails</StyledTableCell>
             <StyledTableCell align="left">Phones</StyledTableCell>
@@ -64,12 +67,13 @@ const AsyncAwait = () => {
         <TableBody>
           {users.map((user) => (
             <StyledTableRow 
-              key={user.name}
+              key={user.naimageme}
               sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             >
               <StyledTableCell component="th" scope="row">
-                {user.name}
+                {user.image}
               </StyledTableCell>
+              <StyledTableCell align="left">{user.name}</StyledTableCell>
               <StyledTableCell align="left">{user.email}</StyledTableCell>
               <StyledTableCell align="left">{user.phone}</StyledTableCell>
             </StyledTableRow>

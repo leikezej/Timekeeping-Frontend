@@ -32,14 +32,13 @@ function getToken() {
 }
 
 const App = () => {
-    const token = getToken();
+  //   const token = getToken();
 
-  if(!token) {
-    return <Login setToken={setToken} />
-  }
+  // if(!token) {
+  //   return <Login setToken={setToken} />
+  // }
 
   return (
-    <main>
       <BrowserRouter>
         <Routes>
               <Route path="/" element={<Login />} />
@@ -60,7 +59,6 @@ const App = () => {
               <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
           </Routes>
     </BrowserRouter>
-    </main>
  );
 }
 
