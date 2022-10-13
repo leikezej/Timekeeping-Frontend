@@ -22,12 +22,13 @@ import ChangePassword from './pages/Forgot/ChangePassword';
 import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
 
-import Navbar from "./components/Navbar/Navbar";
+// import Navbar from "./components/Navbar/Navbar";
 
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <main>
+      <BrowserRouter>
         <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -47,6 +48,7 @@ const App = () => {
               <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
           </Routes>
     </BrowserRouter>
+    </main>
  );
 }
 

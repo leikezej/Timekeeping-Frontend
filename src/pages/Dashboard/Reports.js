@@ -78,9 +78,9 @@ const AsyncAwait = () => {
               <StyledTableCell component="th" scope="row">
                 {timeSheet.name}
               </StyledTableCell>
-              <StyledTableCell align="left">{timeSheet.start_time}</StyledTableCell>
-              <StyledTableCell align="left">{timeSheet.end_time}</StyledTableCell>
-              <StyledTableCell align="left">{timeSheet.total_time}</StyledTableCell>
+              <StyledTableCell align="left">{timeSheet.time_start}</StyledTableCell>
+              <StyledTableCell align="left">{timeSheet.time_end}</StyledTableCell>
+              <StyledTableCell align="left">{timeSheet.time_total}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

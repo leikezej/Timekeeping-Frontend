@@ -1,11 +1,14 @@
 // import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from '../../api/axios';
+import { Link, useNavigate } from 'react-router-dom';
 import { useRef, useState, useEffect } from "react";
 import { faCheck, faTimes, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 import '../../styles/register.css';
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { AiOutlineMail } from "react-icons/ai";
+import { FiEye, FiEyeOff, FiKey, FiPhone, FiUser, FiFacebook, FiGithub, FiLinkedin  } from "react-icons/fi";
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
@@ -15,6 +18,8 @@ const Register = () => {
     const userRef = useRef();
     const errRef = useRef();
     
+    const navigate = useNavigate('');
+
    const [ name, setName ] = useState('');
    const [ validName, setValidName ] = useState(false);
    const [ nameFocus, setNameFocus ] = useState(false);
@@ -34,12 +39,12 @@ const Register = () => {
    const [errMsg, setErrMsg] = useState('');
    const [success, setSuccess] = useState(false);
    
-   // const [ showPassword, setShowPassword ] = useState(false);
-   // const changeIcon = showPassword === true ? false : true;
+   const [ showPassword, setShowPassword ] = useState(false);
+   const changeIcon = showPassword === true ? false : true;
       
-   // const togglePassword = () => {
-   //  setShowPassword(!showPassword);
-   // };
+   const togglePassword = () => {
+    setShowPassword(!showPassword);
+   };
    
    useEffect(() => {
         userRef.current.focus();
@@ -119,7 +124,7 @@ const Register = () => {
                         <label htmlFor="name">
                             Fullname:
                             <FontAwesomeIcon icon={faCheck} className={validName ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validName || !name ? "hide" : "invalid"} />
+                            <FontAwesomeIcon icon={faTimes} className={validName || !user ? "hide" : "invalid"} />
                         </label>
                         <input
                             type="text"
@@ -145,7 +150,7 @@ const Register = () => {
                         <label htmlFor="email">
                             Email:
                             <FontAwesomeIcon icon={faCheck} className={validEmail ? "valid" : "hide"} />
-                            <FontAwesomeIcon icon={faTimes} className={validEmail || !email ? "hide" : "invalid"} />
+                            <FontAwesomeIcon icon={faTimes} className={validEmail || !user ? "hide" : "invalid"} />
                         </label>
                         <input
                             type="email"
@@ -210,9 +215,8 @@ const Register = () => {
                             Must include uppercase and lowercase letters, a number and a special character.<br />
                             Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
                         </p>
-<br />
-                        {/* <button disabled={!validName || !validEmail || !validPhone || !validPassword ? true : false}>Sign Up</button> */}
-                        <button>Sign Up</button>
+
+                        <button disabled={!validName || !validEmail || !validPhone || !validPassword ? true : false}>Sign Up</button>
                     
                     </form>
                     <p>

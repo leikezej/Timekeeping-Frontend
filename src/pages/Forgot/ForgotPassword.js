@@ -1,29 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { FiUser } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
 
 function ForgotPassword() {
-   const navigate = useNavigate();
-   
+      const navigate = useNavigate();
+
    const [ email, setEmail ] = useState('');
 
    const handleForgot= () => {
       console.log({ email })
-      axios.post('http://localhost:8080/api/auth/send-otp', 
+      axios.post('http://localhost:272/api/auth/forgot-password', 
       {
          email: email
       })
       .then(result => {
          alert('Success')
          console.log(result.data)
-      
-         if (result.data.code === 200) {
-            navigate('/change-password')
-         }
-         // if (result.data.code === 500) {
-         //    alert('User Not Found!')
-         // }
+            navigate("/reset-password")
          })
          .catch(error => {
             alert('Something Wen Wrong!')
@@ -60,7 +54,7 @@ function ForgotPassword() {
                borderRadius: '5px', 
                marginTop: '20px', 
                width: '40%' }} 
-         className="btns"> GET OTP </button>
+         className="btns"> SUBMIT </button>
    
       </div>
    </>

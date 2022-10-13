@@ -16,11 +16,11 @@ class UpdatePassword extends Component {
   }
   updatePassword = e => {
     e.preventDefault()
-    const { userId, token } = this.props
+    const { user_id, token } = this.props
     const { password } = this.state
     axios
       .post(
-        `http://localhost:8080/api/auth/update_password/${userId}/${token}`,
+        `http://localhost:8080/api/auth/update_password/${user_id}/${token}`,
         { password }
       )
       .then(res => console.log("RESPONSE FROM SERVER TO CLIENT:", res))
@@ -71,6 +71,6 @@ class UpdatePassword extends Component {
 
 UpdatePassword.propTypes = {
   token: PropTypes.string.isRequired,
-  userId: PropTypes.string.isRequired
+  user_id: PropTypes.string.isRequired
 }
 export default UpdatePassword

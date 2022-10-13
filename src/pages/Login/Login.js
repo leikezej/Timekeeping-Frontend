@@ -8,6 +8,7 @@ import { FiEye, FiEyeOff, FiKey, FiUser } from "react-icons/fi";
 import { BsLock } from "react-icons/bs";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-icons/fa";
 
+
 function Login({setToken}) {
    const navigate = useNavigate('');
 
@@ -21,28 +22,27 @@ function Login({setToken}) {
   };
   
    const handleLogin = () => {
-      console.log({ email, password})
+      // console.log({ email, password})
        axios.post('http://localhost:272/api/auth/signin', 
       {
          email: email,
          password: password
       })
       .then(result =>  {
+         const token =  (email, password);
          alert('SUCCESS')
-          const token =  (email, password);
-          if (token) {
-             localStorage.setItem('token', result.data.refreshToken);
-            }
-            console.log(result.data.refreshToken);
-                
-      if(!localStorage.setItem('token', result.data.refreshToken)) {
-         console.log('success');
-         navigate('/home')
-    }
+         if (token) {
+            sessionStorage.setItem("token", result.data.accessToken);
+         }
+         if(!localStorage.setItem('token', result.data.refreshToken)) {
+            console.log('success');
+            navigate('/home')
+         }
       })
       .catch(error => {
         alert('ERROR')
-        console.log(error)
+        alert(error.message)
+        console.log(error.message)
       })
    }
    
@@ -69,15 +69,14 @@ function Login({setToken}) {
                value={email}
                className="pas-inputs"
                type="email"
-               // onBlur={handleBlur}
-               //  className={errors.email && touched.email && "error"}
-               required/> <br /> <br />
+               required="true"
+               /> <br /> <br />
             
             Password:  <br />
             <FiKey /> {" "}
                <input
                   type={showPassword ? "text" : "password"}
-                  required
+                  required="true"
                   placeholder="**********"
                   onChange={(e) => {
                      setPassword(e.target.value)
