@@ -27,7 +27,8 @@ import Timeout from './components/Timeout/Timeout';
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <main>
+      <BrowserRouter>
         <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
@@ -47,6 +48,7 @@ const App = () => {
               <Route path="*" element={<h1>Error 404 Page not found !!</h1>} />
           </Routes>
     </BrowserRouter>
+    </main>
  );
 }
 

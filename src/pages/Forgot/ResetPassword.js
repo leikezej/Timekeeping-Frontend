@@ -3,17 +3,18 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 
-function ResetPassword() {
+function ChangePassword() {
    const navigate = useNavigate();
-   const [ otp, setOtp ] = useState('');
+   
    const [ password, setPassword ] = useState('');
+   const [ passwordConfirm, setPasswordConfirm ] = useState('');
 
    const handleSubmit= () => {
-      console.log({ otp, password })
-      axios.post('http://localhost:8080/api/auth/submit-otp', 
+      console.log({ password, passwordConfirm })
+      axios.post('http://localhost:272/api/auth/reset-password', 
       {
-         otp: otp,
          password: password,
+         passwordConfirm: passwordConfirm
       })
       .then(result => {
          alert('Success')
@@ -24,11 +25,10 @@ function ResetPassword() {
          }
          })
          .catch(error => {
-            alert('Register Error')
+            alert('Changing Password Error')
             console.log(error)
          })
    }
-
 
    return(
    <>
@@ -37,37 +37,40 @@ function ResetPassword() {
             marginTop: '50px', 
             marginBottom: '25px',
             fontWeight: '900'
-      }}> Reset Password </h1>
+      }}> Change Password </h1>
       
       <div className="outcard">
-         OTP: <br />
-         <input className="inputs" 
-            type="number" 
-            value={otp}
+      
+         Enter New Password: <br />
+         <input className="inputs"  
+            type="password"
+            value={password}
             onChange={(e) => {
-               setOtp(e.target.value)
-            }}
-         />
-         
-         <br />
-         <br />
-         
-         New Password: <br />
-         <input className="inputs" 
-            type="password" 
-             value={password}
-             onChange={(e) => {
                setPassword(e.target.value)
             }}
          />
+         
          <br />
          <br />
+         
+         Re-Enter New Password: <br />
+         <input className="inputs"
+            type="password"
+             value={passwordConfirm}
+             onChange={(e) => {
+               setPasswordConfirm(e.target.value)
+            }}
+         />
+         
+         <br />
+         <br />
+         
          <button
             onClick={handleSubmit}
-         style={{ marginTop: '5px' }} className="btns"> Reset Password </button>
+         style={{ marginTop: '5px' }} className="btns"> Change Password </button>
       </div>
    </>
    )
 }
 
-export default ResetPassword;
+export default ChangePassword;

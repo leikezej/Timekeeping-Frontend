@@ -28,7 +28,7 @@ const Login = () => {
             {console.log("USER",user)}
             <h1>TIMESHEET</h1>
             <h2>LOG IN</h2>
-            <input type="text" name="Email" value={user.Email} placeholder="Enter UserID" onChange={handleChange} />
+            <input type="text" name="Email" value={user.Email} placeholder="Enter user_id" onChange={handleChange} />
             <input type="password" name="Password" value={user.Password} placeholder="Enter Password" onChange={handleChange} />
             <div className="button" onClick={login}>Log In</div>
            </div>

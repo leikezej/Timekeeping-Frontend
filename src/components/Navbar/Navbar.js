@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/navbar.css";
-import { AiOutlineHome, AiOutlineFieldTime,  AiOutlineClockCircle, AiOutlineLineChart, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineFieldTime,  AiOutlineClockCircle, AiOutlineLineChart, AiOutlineUser, AiOutlineDashboard } from "react-icons/ai";
 
 const NavBar = () => {
 	const [activeHam, setActiveHam] = useState(false);
@@ -29,6 +29,11 @@ const NavBar = () => {
 			<a href="/reports">
 				<AiOutlineLineChart size="17px" style={{ marginBottom: '4px'}} 
 				/>{" "}Reports
+			</a>
+			
+			<a href="/dashboard">
+				<AiOutlineDashboard size="17px" style={{ marginBottom: '4px'}} 
+				/>{" "}Dashboard
 			</a>
 			
 			

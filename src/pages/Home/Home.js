@@ -1,11 +1,4 @@
 import { useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
-
-import Timein from "../../components/Tables/TimeinList";
-import Timeout from "../../components/Tables/TimeoutList";
-import Table2 from "../../components/Tables/Table2";
-// import TimeSheetList from "../../components/Tables/TimeSheetList";
-import TimeSheet from "../Dashboard/TimeSheet";
 
 import Navbar from "../../components/Navbar/Navbar";
 
@@ -13,8 +6,6 @@ import Navbar from "../../components/Navbar/Navbar";
 import Clock from "../../components/Clock";
 
 const Home = () => {
-   const navigate = useNavigate()
-
     const styles = {
     contentDiv: {
       flex: 1,
