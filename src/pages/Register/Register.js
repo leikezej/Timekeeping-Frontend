@@ -39,10 +39,12 @@ function Register() {
          password: password
       })
          .then(res => {
+         if (!name || !email || !phone || !password) {
+                return res.sendStatus(400);
+             }
             console.log(res.data)
             console.log(res.status)
                alert('Registration Successfull!')
-            // localStorage.setItem("token", res.data.token);
             navigate("/", { replace: true });
          })
          .catch(error => {
@@ -63,7 +65,7 @@ function Register() {
                onChange={(e) => {
                   setName(e.target.value)
                }}
-               required
+               required={true}
                placeholder="Johnny Pusong"
                value={name}
                className="password-inputs"
@@ -72,7 +74,7 @@ function Register() {
             Email: <br />
              <AiOutlineMail />  {" "}
              <input
-               required
+               required={true}
                onChange={(e) => {
                   setEmail(e.target.value)
                }}
@@ -84,7 +86,7 @@ function Register() {
             Phone: <br />
           <FiPhone />{" "}
              <input
-               required
+               required={true}
                onChange={(e) => {
                   setPhone(e.target.value)
                }}
@@ -102,7 +104,7 @@ function Register() {
                   }}
                   placeholder={'************'}
                   value={password}
-                  required
+               required={true}
                   type={showPassword ? "text" : "password"}
                   className="password-inputs" /> {' '}
                <span

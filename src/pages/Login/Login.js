@@ -9,7 +9,7 @@ import { BsLock } from "react-icons/bs";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-icons/fa";
 
 
-function Login({setToken}) {
+function Login({ setToken }) {
    const navigate = useNavigate('');
 
    const [ email, setEmail ] = useState('');

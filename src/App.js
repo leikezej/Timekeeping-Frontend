@@ -24,8 +24,20 @@ import Timeout from './components/Timeout/Timeout';
 
 // import Navbar from "./components/Navbar/Navbar";
 
+function setToken(userToken) {
+  sessionStorage.setItem('token', JSON.stringify(userToken));
+}
+
+function getToken() {
+}
 
 const App = () => {
+    const token = getToken();
+
+  if(!token) {
+    return <Login setToken={setToken} />
+  }
+
   return (
     <main>
       <BrowserRouter>
