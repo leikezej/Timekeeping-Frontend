@@ -1,62 +1,89 @@
-import React, { useEffect } from 'react';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+// import NavBar from "../../components/Navbar/Navbar";
+import profile1 from "./profile1.jpg";
+import profile2 from "./profile2.jpg";
 
-function Profile() {
-    const navigate = useNavigate('');
-
-   const handleLogout = () => {
-       axios.post('http://localhost:272/api/auth/signout', 
-      )
-         .then(res => {
-            console.log(res.status)
-            localStorage.clear();
-              alert('Logout Success')
-            navigate("/", { replace: true });
-         
-     
-         }).catch(error => {
-            alert('You Are Not Loggedin')
-            console.log(error)
-         })
-   }
-              useEffect(() => {
-    if(!localStorage.getItem('accessToken')) {
-      //   navigate('/profile')
-    }
-  }, [])
-   
+const Profile = () => {
    return(
       <>
-         <div>
-         <h1 className="center"> PROFILE </h1>
-            
-            <button
-               onClick={handleLogout}
-               // onClick={() => {
-                  // localStorage.removeItem('accessToken')
-                  // localStorage.removeItem('refreshToken')
-                  // {handleLogout}
-               // }}
-            > LOGOUT </button>
-            <br />
-                        <button
-               onClick={() => {
-                  localStorage.setItem('arr', JSON.stringify([1, 2, 3, 4]))
-                  localStorage.setItem('obj', { name: 'name1', email: 'email1', phone: 'phone1' })
-               }}> Save </button>
-            <br />
-            
-                        <button
-                        onClick={() => {
-                           const obj = localStorage.getItem('obj')
-                           console.log((obj))
-                        }}
-            > GET </button>
-   
-   <br />
-   <br />
-
+      {/* <NavBar /> */}
+         <div className="container emp-profile">
+            <form method="">
+               <div className="row">
+                  <div className="col-md-4">
+                     <img src={profile1} alt="profile" srcset="" />
+                  </div>
+                  
+                  <div className="col-md-6">
+                     <div className="profile-head">
+                        <h5>Jezekiel Isip</h5>
+                        <h6>Web Developer</h6>
+                        <p className="profile-rating mt-3 mb-5"> Rankings: <span> 6/10</span></p>
+                     
+                        <ul className="nav nav-tabs" role="tablist">
+                           <li className="nav-item">
+                           <a className="nav-link active" id="home-tab" data-toggle="tab" href="/home" role="tab"> About </a>
+                           </li>
+                           <li className="nav-item">
+                              <a className="nav-link active" id="profile-tab" data-toggle="tab" href="/profile" role="tab"> Timelin </a> 
+                           </li>
+                        </ul>
+                     
+                     </div>
+                  </div>
+                  
+                  <div className="col-md-2">
+                     <input type="submit" className="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                  </div>
+                  
+                  <div className="row">
+                     <div className="col-md-4">
+                        <div className="profile-work">
+                           <p> Work Link </p>
+                           <a href="https://www.youtube.com">Youtube</a>
+                           <a href="https://www.youtube.com">Instagram</a>
+                           <a href="https://www.youtube.com">Twitter</a>
+                           <a href="https://www.youtube.com">Github</a>
+                           <a href="https://www.youtube.com">Linkedin</a>
+                        </div>
+                     </div>
+                  </div>
+                  <div className="col-md-8 pl-5 about-info">
+                     <div className="tab-content profile-tab" id="myTabContent">
+                        <div className="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                           
+                              <div className="row">
+                                 <div className="col-md-6">
+                                    <label>USER ID</label>
+                                 </div>
+                                 <div className="col-md-6">
+                                    <p>123120831230-123123</p>
+                                 </div>
+                              </div>
+                              
+                              <div className="row mt-3">
+                                 <div className="col-md-6">
+                                    <label>Name</label>
+                                 </div>
+                                 <div className="col-md-6">
+                                    <p>Batman</p>
+                                 </div>
+                              </div>
+                              
+                              <div className="row">
+                                 <div className="col-md-6">
+                                    <label>USER ID</label>
+                                 </div>
+                                 <div className="col-md-6">
+                                    <p>123120831230-123123</p>
+                                 </div>
+                              </div>
+                              
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </form>
          </div>
       </>
          

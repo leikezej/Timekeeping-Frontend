@@ -1,61 +1,99 @@
 import React from 'react';
+// import logo from './logo.svg';
+import '../styles/datetime.css';
 var FontAwesome = require('react-fontawesome');
 
+class Datetime extends React.Component {
+  constructor() {
+    super();
+    
+    var today = new Date(),
+        date = 
+            today.getFullYear() + '-' + 
+            (today.getMonth() + 1) + '-' + today.getDate();
 
+    this.state = { currentTime: null, currentDay: null, currentDate: date }
+    this.daysArray = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+  }
 
-export class Clock extends React.Component {
-    constructor() {
-        super();
+  componentWillMount() {
+    this.getCurrentTime();
+  }
+  
+  componentWillMount() {
+    this.getCurrentDate();
+  }
+  
+  getCurrentDate = () => {
+    var today = new Date(),
+            date = 
+                today.getFullYear() + '-' + 
+                (today.getMonth() + 1) + '-' + today.getDate();
 
-        var today = new Date(),
-             date = 
-                  today.getFullYear() + '-' + 
-                  (today.getMonth() + 1) + '-' + today.getDate();
+    // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+  }
 
-        // var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-        
-            const formatAMPM = (date) => {
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let ampm = hours >= 12 ? 'pm' : 'am';
-                hours = hours % 12;
-                hours = hours ? hours : 12;
-                minutes = minutes.toString().padStart(2, '0');
-                let strTime = hours + ':' + minutes + ' ' + ampm;
-                return strTime;
-            }
-                console.log(formatAMPM(new Date(2022, 1, 1)));
+  getCurrentTime = () => {
+    let hour = new Date().getHours();
+    let minutes = new Date().getMinutes();
+    let seconds = new Date().getSeconds();
+    let am_pm = 'pm';
 
-        var dateTime = date+' '+time;
-        
-        
-        this.state = {
-            date: date,
-            time: time,
-            dateTime: dateTime
-        };
+    if (minutes < 10) {
+      minutes = '0' + minutes;
     }
 
-    render() {
-        return (
-            <div className='date'>
-                <FontAwesome name='calendar' /> {" "}
-                {this.state.date}
-                {" "}
-                {" "}
-                <FontAwesome name='clock' /> {" "}
-                {this.state.time}
-            </div>
-        );
+    if (seconds < 10) {
+      seconds = '0' + seconds;
     }
+
+    if (hour > 12) {
+      hour = hour - 12;
+    }
+
+    if (hour == 0) {
+      hour = 12;
+    }
+
+    if (new Date().getHours() < 12) {
+      am_pm = 'am';
+    }
+
+    this.setState({ currentTime: hour + ':' + minutes + ':' + seconds + ' ' + am_pm });
+
+    this.daysArray.map((item, key) => {
+      if (key == new Date().getDay()) {
+        this.setState({ currentDay: item.toUpperCase() });
+      }
+    })
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
+  }
+
+  componentDidMount() {
+    this.timer = setInterval(() => {
+      this.getCurrentTime();
+    }, 1000);
+  }
+  render() {
+
+    return (
+      <>
+        <div>
+          <FontAwesome name='calendar' /> {" "}
+          {[this.state.currentDate, (this.state.currentDay)]} {" "}
+            {" "}
+            {" "}
+            {" "}
+            {" "}
+            {" "}
+        <FontAwesome name='clock' /> {" "}
+          {this.state.currentTime}
+        </div>
+      </>
+    );
+  }
 }
-
-export default Clock;
-
-
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-var dateTime = date+' '+time;
- 
-console.log(dateTime)
+export default Datetime;
