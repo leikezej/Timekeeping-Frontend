@@ -8,10 +8,10 @@ import { FiEye, FiEyeOff, FiKey, FiUser } from "react-icons/fi";
 import { BsLock } from "react-icons/bs";
 import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-icons/fa";
 
-
 function Login({ setToken }) {
    const navigate = useNavigate('');
-  const [err, setError] = useState(null);
+   const [err, setError] = useState(null);
+   const [msg, setMsg] = useState(null);
 
    const [ email, setEmail ] = useState('');
    const [ password, setPassword ] = useState('');
@@ -28,7 +28,7 @@ function Login({ setToken }) {
 
   
    const handleLogin = async (e) => {
-      // console.log({ email, password})
+      console.log({ email, password})
     e.preventDefault();
        axios.post('http://localhost:272/api/auth/signin', 
       {
@@ -61,8 +61,8 @@ function Login({ setToken }) {
         console.log(err)
         console.log(err.message)
         console.log(err.result.data.error.message)
-      setError(err.response.data);
-        
+        setError(err.response.data);
+        setMsg(err.response.data.msg);
       })
    }
    

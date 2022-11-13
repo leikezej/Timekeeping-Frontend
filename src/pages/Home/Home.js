@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 import TimeinList from "../../components/Tables/TimeinList";
 import TimeoutList from "../../components/Tables/TimeoutList";
@@ -42,12 +43,22 @@ const Home = () => {
     }
   };
   
-     useEffect(() => {
-      const token = localStorage.getItem('token')
-       if(!token){
-         navigate('/')
-       }
-   }, [])
+  const Logout = async () => {
+      try {
+        console.log('out')
+          await axios.delete('http://localhost:272/api/auth/logout');
+          navigate("/");
+      } catch (error) {
+          console.log(error);
+      }
+  }  
+  
+  //    useEffect(() => {
+  //     const token = localStorage.getItem('token')
+  //      if(!token){
+  //        navigate('/')
+  //      }
+  //  }, [])
 
   
    return(
@@ -56,7 +67,6 @@ const Home = () => {
               <Navbar />
             <br />
             <br />
-            
             <center><Clock /></center>
             
             <div styles={styles.contentMargin}>
@@ -65,6 +75,13 @@ const Home = () => {
                   <TimeoutList />
                 </div>
             <br />
+            
+                                        <div className="buttons">
+                                <button onClick={Logout} className="button is-light">
+                                    Log Out
+                                </button>
+                                  console.log('out')
+                            </div>
             <br />
             
               <div style={styles.table1}>

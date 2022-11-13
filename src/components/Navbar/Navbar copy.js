@@ -1,20 +1,22 @@
-import React from 'react'
-import axios from 'axios';
-import { useHistory } from 'react-router-dom';
- 
-const Navbar = () => {
-    const history = useHistory();
- 
-    const Logout = async () => {
+import React, { useState } from "react";
+import "../../styles/navbar.css";
+import { AiOutlineHome, AiOutlineFieldTime,  AiOutlineClockCircle, AiOutlineLineChart, AiOutlineUser, AiOutlineDashboard } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const NavBar = () => {
+		const navigate = useNavigate(); 
+		
+		const Logouts = async () => {
         try {
-            await axios.delete('http://localhost:5000/logout');
-            history.push("/");
+            await axios.delete('http://localhost:272/api/auth/logout');
+            navigate("/");
+            // history.push("/");
         } catch (error) {
             console.log(error);
         }
     }
- 
-    return (
+	return (
         <nav className="navbar is-light" role="navigation" aria-label="main navigation">
             <div className="container">
                 <div className="navbar-brand">
@@ -39,7 +41,7 @@ const Navbar = () => {
                     <div className="navbar-end">
                         <div className="navbar-item">
                             <div className="buttons">
-                                <button onClick={Logout} className="button is-light">
+                                <button onClick={Logouts} className="button is-light">
                                     Log Out
                                 </button>
                             </div>
@@ -48,7 +50,7 @@ const Navbar = () => {
                 </div>
             </div>
         </nav>
-    )
-}
- 
-export default Navbar
+	);
+};
+
+export default NavBar;

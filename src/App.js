@@ -22,14 +22,13 @@ import ChangePassword from './pages/Forgot/ChangePassword';
 import Timein from './components/Timein/Timein';
 import Timeout from './components/Timeout/Timeout';
 
-// import Navbar from "./components/Navbar/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
-
-function getToken() {
-}
+// function setToken(userToken) {
+//   sessionStorage.setItem('token', JSON.stringify(userToken));
+// }
+// function getToken() {
+// }
 
 const App = () => {
   //   const token = getToken();
@@ -41,6 +40,7 @@ const App = () => {
   return (
       <BrowserRouter>
         <Routes>
+          {/* <Navbar /> */}
               <Route path="/" element={<Login />} />
               <Route path="/register" element={<Register />} />
               <Route path="/home" element={<Home />} />

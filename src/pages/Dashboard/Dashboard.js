@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Sidebar from "../../components/Sidebar";
 import axios from 'axios';
 import jwt_decode from "jwt-decode";
-import { useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Dashboard = () => {
@@ -10,8 +10,8 @@ const Dashboard = () => {
     const [token, setToken] = useState('');
     const [expire, setExpire] = useState('');
     const [users, setUsers] = useState([]);
-    const history = useHistory();
-
+   const navigate = useNavigate();
+    
     useEffect(() => {
         refreshToken();
         getUser();
@@ -27,7 +27,8 @@ const Dashboard = () => {
             setExpire(decoded.exp);
         } catch (error) {
             if (error.response) {
-                history.push("/");
+               //  history.push("/");
+                navigate("/");
             }
         }
     }
@@ -49,7 +50,7 @@ const Dashboard = () => {
         return Promise.reject(error);
     });
     
-        const getUsers = async () => {
+        const getUser = async () => {
         const response = await axiosJWT.get('http://localhost:272/api/auth/v1/users', {
             headers: {
                 Authorization: `Bearer ${token}`
