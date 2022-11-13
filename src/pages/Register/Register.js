@@ -90,6 +90,7 @@ function Register() {
                onChange={(e) => {
                   setName(e.target.value)
                }}
+               autocomplete="off"
                required={true}
                placeholder="Johnny Pusong"
                value={name}
@@ -103,6 +104,7 @@ function Register() {
                onChange={(e) => {
                   setEmail(e.target.value)
                }}
+               autocomplete="off"
                placeholder="johndoe@gmail.com"
                value={email}
                className="password-inputs"
@@ -115,6 +117,7 @@ function Register() {
                onChange={(e) => {
                   setPhone(e.target.value)
                }}
+               autocomplete="off"
                value={phone}
                className="password-inputs"
                type="number"
@@ -128,6 +131,7 @@ function Register() {
                onChange={(e) => {
                   setImage(e.target.value)
                }}
+               autocomplete="off"
                value={image}
                className="password-inputs"
                type="file"
@@ -143,6 +147,7 @@ function Register() {
                   placeholder={'************'}
                   value={password}
                required={true}
+               autocomplete="off"
                   type={showPassword ? "text" : "password"}
                   className="password-inputs" /> {' '}
                <span

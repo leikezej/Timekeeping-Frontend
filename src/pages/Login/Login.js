@@ -11,6 +11,7 @@ import { FaGoogle, FaFacebookF, FaGithub, FaLinkedinIn, FaGitlab } from "react-i
 
 function Login({ setToken }) {
    const navigate = useNavigate('');
+  const [err, setError] = useState(null);
 
    const [ email, setEmail ] = useState('');
    const [ password, setPassword ] = useState('');
@@ -21,8 +22,14 @@ function Login({ setToken }) {
     setShowPassword(!showPassword);
   };
   
-   const handleLogin = (e) => {
+    const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  
+   const handleLogin = async (e) => {
       // console.log({ email, password})
+    e.preventDefault();
        axios.post('http://localhost:272/api/auth/signin', 
       {
          email: email,
@@ -48,12 +55,14 @@ function Login({ setToken }) {
             navigate('/home')
          }
       })
-      .catch(error => {
+      .catch(err => {
         alert('ERROR')
-        alert(error.message)
-        console.log(error)
-        console.log(error.message)
-        console.log(error.result.data.error.message)
+        alert(err.message)
+        console.log(err)
+        console.log(err.message)
+        console.log(err.result.data.error.message)
+      setError(err.response.data);
+        
       })
    }
    
@@ -74,13 +83,16 @@ function Login({ setToken }) {
           <FiUser /> {" "}
              <input
                onChange={(e) => {
-                  setEmail(e.target.value)
+                  setEmail(e.target.value),
+                  {handleChange}
+                  
                }}
                placeholder="john123@gmail.com"
                value={email}
                className="pas-inputs"
                type="email"
                required="true"
+               autocomplete="off"
                /> <br /> <br />
             
             Password:  <br />
@@ -90,8 +102,11 @@ function Login({ setToken }) {
                   required="true"
                   placeholder="**********"
                   onChange={(e) => {
-                     setPassword(e.target.value)
+                     setPassword(e.target.value),
+                  {handleChange}
+                     
                   }}
+               autocomplete="off"
                   value={password}
                   className="pas-inputs" 
                /> {" "} {" "}
@@ -116,6 +131,7 @@ function Login({ setToken }) {
                   <br />
                   
                <button onClick={handleLogin} className="btns"> LOGIN </button>
+        {err && <p>{err}</p>}
                   <br />
                
                <center style={{ textAlign: 'center', justifyContent: 'center', alignContent: 'center', alignItems: 'center'}}>Login Using:</center> <br />
