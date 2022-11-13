@@ -3,66 +3,50 @@ import "../../styles/navbar.css";
 import { AiOutlineHome, AiOutlineFieldTime,  AiOutlineClockCircle, AiOutlineLineChart, AiOutlineUser, AiOutlineDashboard } from "react-icons/ai";
 
 const NavBar = () => {
-	const [activeHam, setActiveHam] = useState(false);
-	const menuItems = (
-		<>
-			<a href="/home">
-				<AiOutlineHome size="17px" style={{ marginBottom: '4px'}} 
-				/>{" "}Home
-			</a>
-			
-			<a href="/timein">
-				<AiOutlineClockCircle size="17px" style={{ marginBottom: '4px'}} 
-				/>{" "}Timein
-			</a>
-			
-			<a href="/timeout">
-				<AiOutlineFieldTime size="17px" style={{ marginBottom: '4px'}} 
-				/>{" "}Timeout
-			</a>
-			
-			<a href="/timesheet">
-				<AiOutlineLineChart size="17px" style={{ marginBottom: '4px'}} 
-				/>{" "}TimeSheet
-			</a>
-			
-			<a href="/reports">
-				<AiOutlineLineChart size="17px" style={{ marginBottom: '4px'}} 
-				/>{" "}Reports
-			</a>
-			
-			<a href="/dashboard">
-				<AiOutlineDashboard size="17px" style={{ marginBottom: '4px'}} 
-				/>{" "}Dashboard
-			</a>
-			
-			
-			<a href="/profile">
-				<AiOutlineUser size="17px" style={{ marginBottom: '4px'}} 
-					// onMouseOver={({target})=>target.style.color="#171515"}
-					// onMouseOut={({target})=>target.style.color="#"}
-				/>Profile
-			</a>
-		</>
-	);
+    const history = useHistory();
+		
+		const Logouts = async () => {
+        try {
+            await axios.delete('http://localhost:272/api/auth/v1/logouts');
+            history.push("/");
+        } catch (error) {
+            console.log(error);
+        }
+    }
 	return (
-		<div className="navbar-container">
-			<nav>
-				<div className="nav-container">
-					<h1 className="nav-brand">Bugtech</h1>
-					<div className="menu">{menuItems}</div>
-					<button
-						className={activeHam ? "hamburger active-hamburger" : "hamburger"}
-						onClick={() => setActiveHam(!activeHam)}
-					>
-						<span></span>
-						<span></span>
-						<span></span>
-					</button>
-				</div>
-			</nav>
-			{activeHam && <div className="nav-dropdown">{menuItems}</div>}
-		</div>
+        <nav className="navbar is-light" role="navigation" aria-label="main navigation">
+            <div className="container">
+                <div className="navbar-brand">
+                    <a className="navbar-item" href="https://bulma.io">
+                        <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" alt="logo" />
+                    </a>
+ 
+                    <a href="/" role="button" className="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+ 
+                <div id="navbarBasicExample" className="navbar-menu">
+                    <div className="navbar-start">
+                        <a href="/" className="navbar-item">
+                            Home
+                        </a>
+                    </div>
+ 
+                    <div className="navbar-end">
+                        <div className="navbar-item">
+                            <div className="buttons">
+                                <button onClick={Logout} className="button is-light">
+                                    Log Out
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
 	);
 };
 
