@@ -6,7 +6,7 @@ function Profile() {
     const navigate = useNavigate('');
 
    const handleLogout = () => {
-       axios.post('http://localhost:272/api/auth/signout', 
+       axios.post('http://localhost:272/api/auth/v1/logouts', 
       )
          .then(res => {
             console.log(res.status)
